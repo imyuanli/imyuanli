@@ -8,6 +8,7 @@ import bgImg from '../public/infinity-3640497.jpg'
 import {ClockCircleOutlined, DownOutlined} from "@ant-design/icons";
 import {DEFAULT_WORK_LIST} from "@/utils";
 import Title from "@/components/title";
+import it from "node:test";
 
 const {Meta} = Card;
 export default function Home() {
@@ -40,7 +41,8 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className={'min-h-screen w-full text-lg relative overflow-hidden'}>
-                <header className={`${visible ? 'fixed bg-white shadow-lg' : 'absolute'} w-full z-10 flex-center h-20`}>
+                <header
+                    className={`${visible ? 'fixed bg-white-200 shadow-lg backdrop-blur-md backdrop-saturate-150' : 'absolute'}  w-full z-10 flex-center h-20`}>
                     <div className={`${styles.headerContent} flex justify-between`}>
                         <div className={'flex-center'}>
                             <Image
@@ -132,23 +134,26 @@ export default function Home() {
                             DEFAULT_WORK_LIST.map((item, index) => {
                                 return (
                                     <div key={index}>
-                                        <Card
-                                            hoverable={true}
-                                            style={{
-                                                maxWidth: 300,
-                                            }}
-                                            cover={
-                                                <Image
-                                                    alt="example"
-                                                    src={bgImg}
+                                        <a href={item.link} title={item.name}>
+                                            <Card
+                                                hoverable={true}
+                                                style={{
+                                                    maxWidth: 350,
+                                                }}
+                                                cover={
+                                                    <Image
+                                                        alt="example"
+                                                        src={bgImg}
+                                                    />
+                                                }
+                                            >
+                                                <Meta
+                                                    title={item.name}
+                                                    description={item.description}
                                                 />
-                                            }
-                                        >
-                                            <Meta
-                                                title={item.name}
-                                                description={item.description}
-                                            />
-                                        </Card>
+                                            </Card>
+                                        </a>
+
                                     </div>
                                 )
                             })
@@ -162,25 +167,23 @@ export default function Home() {
                             mode="alternate"
                             items={[
                                 {
-                                    children: 'Create a services site 2015-09-01',
-                                },
-                                {
-                                    children: 'Solve initial network problems 2015-09-01',
-                                    color: 'green',
-                                },
-                                {
-                                    dot: <ClockCircleOutlined style={{ fontSize: '16px' }} />,
+                                    dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
                                     children: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`,
                                 },
                                 {
-                                    color: 'red',
-                                    children: 'Network problems being solved 2015-09-01',
+                                    dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
+                                    children: 'Technical testing 2015-09-01',
                                 },
                                 {
-                                    children: 'Create a services site 2015-09-01',
+                                    dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
+                                    children: 'Technical testing 2015-09-01',
                                 },
                                 {
-                                    dot: <ClockCircleOutlined style={{ fontSize: '16px' }} />,
+                                    dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
+                                    children: 'Technical testing 2015-09-01',
+                                },
+                                {
+                                    dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
                                     children: 'Technical testing 2015-09-01',
                                 },
                             ]}
