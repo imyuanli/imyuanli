@@ -3,7 +3,7 @@ import styles from '@/styles/Home.module.css'
 import {Anchor, Button, Card, FloatButton, Tag, Timeline} from "antd";
 import Image from 'next/image'
 import Logo from '../public/logo.png'
-import {ClockCircleOutlined, SmileOutlined} from "@ant-design/icons";
+import {ClockCircleOutlined, GithubOutlined, SmileOutlined} from "@ant-design/icons";
 import {DEFAULT_WORK_LIST} from "@/utils";
 import Title from "@/components/title";
 
@@ -32,27 +32,37 @@ export default function Home() {
                                 width={60}
                             />
                         </div>
-                        <Anchor
-                            direction="horizontal"
-                            items={[
-                                {
-                                    key: 'work',
-                                    href: '#work',
-                                    title: getBtn('作品'),
-                                },
-                                {
-                                    key: 'log',
-                                    href: '#log',
-                                    title: getBtn('日志'),
-                                },
-                            ]}
-                            className={'text-white'}
-                        />
+                        <div className={'flex-center'}>
+                            <Anchor
+                                direction="horizontal"
+                                items={[
+                                    {
+                                        key: 'work',
+                                        href: '#work',
+                                        title: getBtn('作品'),
+                                    },
+                                    {
+                                        key: 'log',
+                                        href: '#log',
+                                        title: getBtn('日志'),
+                                    }
+                                ]}
+                                className={'text-white'}
+                            />
+                            <a href="https://github.com/imyuanli">
+                                <Button
+                                    type={'text'}
+                                    size={'large'}
+                                    className={'ml-3 flex-center'}
+                                    icon={<GithubOutlined style={{fontSize: 18}}/>}
+                                />
+                            </a>
+                        </div>
                     </div>
                 </header>
                 <section id={'work'} className={`bg-gray-100 ${sectionClass} py-32`}>
                     <Title text={'我的作品'}/>
-                    <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'}>
+                    <div className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'}>
                         {
                             DEFAULT_WORK_LIST.map((item, index) => {
                                 return (
