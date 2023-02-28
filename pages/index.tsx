@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import {Anchor, Button, Card, FloatButton, Timeline} from "antd";
+import {Anchor, Button, Card, FloatButton, Tag, Timeline} from "antd";
 import Image from 'next/image'
 import Logo from '../public/logo.png'
-import bgImg from '../public/infinity-3640497.jpg'
 import {ClockCircleOutlined, SmileOutlined} from "@ant-design/icons";
 import {DEFAULT_WORK_LIST} from "@/utils";
 import Title from "@/components/title";
@@ -51,7 +50,7 @@ export default function Home() {
                         />
                     </div>
                 </header>
-                <section id={'work'} className={`bg-gray-100 ${sectionClass}`}>
+                <section id={'work'} className={`bg-gray-100 ${sectionClass} py-32`}>
                     <Title text={'我的作品'}/>
                     <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'}>
                         {
@@ -64,16 +63,31 @@ export default function Home() {
                                                 style={{
                                                     maxWidth: 350,
                                                 }}
-                                                cover={
-                                                    <Image
-                                                        alt="example"
-                                                        src={bgImg}
-                                                    />
-                                                }
                                             >
+                                                <div className={'flex mb-3'}>
+                                                    <div className={'flex-shrink-0 w-16 mr-3 relative'}>
+                                                        <Image
+                                                            layout={'fill'}
+                                                            objectFit={'contain'}
+                                                            alt={item.name}
+                                                            src={item.logo ? item.logo : '/default.png'}
+                                                        />
+                                                    </div>
+                                                    <div style={{width: 200}}>
+                                                        <div className={'font-bold text-lg'}>{item.name}</div>
+                                                        <div className={'truncate'}>{item.link}</div>
+                                                    </div>
+                                                </div>
                                                 <Meta
-                                                    title={item.name}
-                                                    description={item.description}
+                                                    description={
+                                                        <div>
+                                                            <div className={'truncate mb-2'}>{item.description}</div>
+                                                            <div className={'w-full flex justify-between'}>
+                                                                <Tag color={'#9CA3AF'}>{item.tag}</Tag>
+                                                                <div>v {item.version}</div>
+                                                            </div>
+                                                        </div>
+                                                    }
                                                 />
                                             </Card>
                                         </a>
