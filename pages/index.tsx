@@ -1,36 +1,18 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import {Anchor, Button, Card, Divider, Tag, Timeline} from "antd";
-import {useEffect, useState} from "react";
+import {Anchor, Button, Card, FloatButton, Timeline} from "antd";
 import Image from 'next/image'
 import Logo from '../public/logo.png'
 import bgImg from '../public/infinity-3640497.jpg'
-import {ClockCircleOutlined, DownOutlined} from "@ant-design/icons";
+import {ClockCircleOutlined, SmileOutlined} from "@ant-design/icons";
 import {DEFAULT_WORK_LIST} from "@/utils";
 import Title from "@/components/title";
-import it from "node:test";
 
 const {Meta} = Card;
 export default function Home() {
-    const [visible, setVisible] = useState(false)
-    useEffect(() => {
-        handleScroll()
-    }, [])
-
-    const handleScroll = () => {
-        window.addEventListener('scroll', () => {
-            if (document.documentElement.scrollTop > 80) {
-                setVisible(true)
-            } else {
-                setVisible(false)
-            }
-        })
-    }
-
     const getBtn = (text: string) => (
-        <Button className={`${visible ? 'text-black' : 'text-white'}`} type="text" size={'large'}>{text}</Button>
+        <Button type="text" size={'large'}>{text}</Button>
     )
-
     const sectionClass = 'py-24 flex-center flex-col px-12'
     return (
         <>
@@ -42,7 +24,7 @@ export default function Home() {
             </Head>
             <main className={'min-h-screen w-full text-lg relative overflow-hidden'}>
                 <header
-                    className={`${visible ? 'fixed bg-white-200 shadow-lg backdrop-blur-md backdrop-saturate-150' : 'absolute'}  w-full z-10 flex-center h-20`}>
+                    className={`fixed bg-white-200 shadow-lg backdrop-blur-md backdrop-saturate-150 w-full z-10 flex-center h-20`}>
                     <div className={`${styles.headerContent} flex justify-between`}>
                         <div className={'flex-center'}>
                             <Image
@@ -54,16 +36,6 @@ export default function Home() {
                         <Anchor
                             direction="horizontal"
                             items={[
-                                {
-                                    key: 'home',
-                                    href: '#home',
-                                    title: getBtn('首页'),
-                                },
-                                {
-                                    key: 'about',
-                                    href: '#about',
-                                    title: getBtn('关于'),
-                                },
                                 {
                                     key: 'work',
                                     href: '#work',
@@ -79,54 +51,6 @@ export default function Home() {
                         />
                     </div>
                 </header>
-                <Image
-                    src={bgImg}
-                    alt={'背景'}
-                    className={'fixed min-h-screen -z-10 object-cover'}
-                />
-                <section
-                    id={'home'}
-                    className={styles.home}
-                >
-                    <div
-                        className={'absolute left-1/2 top-1/3 -translate-x-1/2 flex-center flex-col text-white w-full'}>
-                        不积跬步，无以至千里。
-                    </div>
-                    <div className={'absolute bottom-9 left-1/2 -translate-x-1/2'}>
-                        <Anchor
-                            items={[
-                                {
-                                    key: 'about',
-                                    href: '#about',
-                                    title: <DownOutlined className={'text-gray-400 text-3xl'}/>,
-                                },
-                            ]}
-                        />
-                    </div>
-                </section>
-                <section id={'about'} className={`bg-white ${sectionClass}`}>
-                    <Title text={'关于我'}/>
-                    <div className={'mb-3'}>
-                        <Tag>00后</Tag>
-                        <Tag>一个前端开发</Tag>
-                        <Tag>会点后端</Tag>
-                        <Tag>00后</Tag>
-                    </div>
-                    <div className={'flex-center flex-col'}>
-                        <p>123</p>
-                        <p>123</p>
-                        <p>123123123123123123123123123123</p>
-                        <p>12312312313123123123</p>
-                        <p>1123123123123123123123123</p>
-                        <p>123</p>
-                        <p>123</p>
-                        <p>123</p>
-                        <p>123</p>
-                        <p>123</p>
-                        <p>123</p>
-                        <p>123</p>
-                    </div>
-                </section>
                 <section id={'work'} className={`bg-gray-100 ${sectionClass}`}>
                     <Title text={'我的作品'}/>
                     <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'}>
@@ -160,39 +84,83 @@ export default function Home() {
                         }
                     </div>
                 </section>
-                <section id={'log'} className={`bg-white ${sectionClass}`}>
+                <section id={'log'} className={`bg-white ${sectionClass} py-12`}>
                     <Title text={'网站日志'}/>
-                    <div>
-                        <Timeline
-                            mode="alternate"
-                            items={[
-                                {
-                                    dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
-                                    children: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`,
-                                },
-                                {
-                                    dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
-                                    children: 'Technical testing 2015-09-01',
-                                },
-                                {
-                                    dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
-                                    children: 'Technical testing 2015-09-01',
-                                },
-                                {
-                                    dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
-                                    children: 'Technical testing 2015-09-01',
-                                },
-                                {
-                                    dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
-                                    children: 'Technical testing 2015-09-01',
-                                },
-                            ]}
-                        />
-                    </div>
+                    <Timeline
+                        mode="alternate"
+                        className={'w-full'}
+                        items={[
+                            {
+                                color: '#00CCFF',
+                                dot: <SmileOutlined style={{fontSize: 22}}/>,
+                                children: <p>TO BE CONTINUED...</p>,
+                            },
+
+                            {
+                                label: '2023-2-22',
+                                dot: <ClockCircleOutlined/>,
+                                children: <p>woodBox更换名称及域名 aTools 1.0 上线</p>,
+                            },
+                            {
+                                label: '2023-12-23',
+                                children: <p>woodBox Beta版 上线</p>,
+                            },
+                            {
+                                label: '2022-12-11',
+                                dot: <ClockCircleOutlined/>,
+                                children: <p>鸢离起始页更换架构并更名为mini起始页</p>,
+                            },
+                            {
+                                label: '2022-10-8',
+                                dot: <ClockCircleOutlined/>,
+                                children: <p>博客 1.0 上线</p>,
+                            },
+                            {
+                                label: '2022-9-24',
+                                children: <p>前端所有网站交由vercel托管,全域开启HTTPS</p>,
+                            },
+                            {
+                                label: '2022-9-4',
+                                dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
+                                children: <p>简历生成 1.0 上线</p>,
+                            },
+                            {
+                                label: '2022-8-11',
+                                color: 'gray',
+                                children: <p>鸢离起始页 1.0 上线</p>,
+                            },
+                            {
+                                label: '2022-7-30',
+                                color: 'gray',
+                                children: <p>续费新服务器,续费域名，构思新项目 鸢离起始页</p>,
+                            },
+                            {
+                                label: '2021-12-11',
+                                color: 'red',
+                                children: <p>服务器到期，网站停更。</p>,
+                            },
+                            {
+                                label: '2021-8-19',
+                                color: 'gray',
+                                children: <p>鸢离主页2.0上线</p>,
+                            },
+                            {
+                                label: '2021-2-5',
+                                color: 'gray',
+                                children: <p>更换后端架构，鸢离主页新增多个功能模块，并正式发布1.0</p>,
+                            },
+                            {
+                                label: '2020-12-11',
+                                color: 'gray',
+                                children: <p>注册域名，鸢离主页Beta 正式上线</p>,
+                            },
+                        ]}
+                    />
                 </section>
-                <footer>
-                    <div className={'text-white flex-center'}>© {new Date().getFullYear()} 鸢离</div>
+                <footer className={`w-full flex-center bg-gray-100 p-3`}>
+                    © {new Date().getFullYear()} 鸢离
                 </footer>
+                <FloatButton.BackTop type={'primary'} visibilityHeight={80}/>
             </main>
         </>
     )
