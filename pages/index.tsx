@@ -12,7 +12,7 @@ export default function Home() {
     const getBtn = (text: string) => (
         <Button type="text" size={'large'}>{text}</Button>
     )
-    const sectionClass = 'py-24 flex-center flex-col px-12'
+    const sectionClass = 'py-24 flex-center flex-col px-6'
     return (
         <>
             <Head>
@@ -70,43 +70,40 @@ export default function Home() {
                         {
                             DEFAULT_WORK_LIST.map((item, index) => {
                                 return (
-                                    <div key={index}>
-                                        <a href={item.link} title={item.name}>
-                                            <Card
-                                                hoverable={true}
-                                                style={{
-                                                    maxWidth: 350,
-                                                }}
-                                            >
-                                                <div className={'flex mb-3'}>
-                                                    <div className={'flex-shrink-0 w-16 mr-3 relative'}>
-                                                        <Image
-                                                            layout={'fill'}
-                                                            objectFit={'contain'}
-                                                            alt={item.name}
-                                                            src={item.logo ? item.logo : '/default.png'}
-                                                        />
-                                                    </div>
-                                                    <div style={{width: 200}}>
-                                                        <div className={'font-bold text-lg'}>{item.name}</div>
-                                                        <div className={'truncate'}>{item.link}</div>
-                                                    </div>
+                                    <a key={index} href={item.link} title={item.name}>
+                                        <Card
+                                            hoverable={true}
+                                            style={{
+                                                maxWidth: 350,
+                                            }}
+                                        >
+                                            <div className={'flex mb-3'}>
+                                                <div className={'flex-shrink-0 w-16 mr-3 relative'}>
+                                                    <Image
+                                                        layout={'fill'}
+                                                        objectFit={'contain'}
+                                                        alt={item.name}
+                                                        src={item.logo ? item.logo : '/default.png'}
+                                                    />
                                                 </div>
-                                                <Meta
-                                                    description={
-                                                        <div>
-                                                            <div className={'truncate mb-2'}>{item.description}</div>
-                                                            <div className={'w-full flex justify-between'}>
-                                                                <Tag color={'#9CA3AF'}>{item.tag}</Tag>
-                                                                <div>v {item.version}</div>
-                                                            </div>
+                                                <div style={{width: 200}}>
+                                                    <div className={'font-bold text-lg'}>{item.name}</div>
+                                                    <div className={'truncate'}>{item.link}</div>
+                                                </div>
+                                            </div>
+                                            <Meta
+                                                description={
+                                                    <div>
+                                                        <div className={'truncate mb-2'}>{item.description}</div>
+                                                        <div className={'w-full flex justify-between'}>
+                                                            <Tag color={'#9CA3AF'}>{item.tag}</Tag>
+                                                            <div>v {item.version}</div>
                                                         </div>
-                                                    }
-                                                />
-                                            </Card>
-                                        </a>
-
-                                    </div>
+                                                    </div>
+                                                }
+                                            />
+                                        </Card>
+                                    </a>
                                 )
                             })
                         }
