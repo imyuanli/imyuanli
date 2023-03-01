@@ -22,6 +22,7 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <meta name="360-site-verification" content="640d32949bba6deb803d4ae7659aefaf" />
                 <meta name="sogou_site_verification" content="0uSzFwTLGI" />
+                <meta name="baidu-site-verification" content="code-LmA6J2PD3u" />
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className={'min-h-screen w-full text-lg relative overflow-hidden'}>
