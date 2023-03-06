@@ -18,7 +18,7 @@ export default function Home() {
             <Head>
                 <title>鸢离</title>
                 <meta name="keywords" content="鸢离,yuanli,imyuanli,个人网站,我的作品"/>
-                <meta name="description" content="这里是鸢离的个人网站,包含了我的部分作品及网站的动态"/>
+                <meta name="description" content="鸢离,yuanli,imyuanli,个人网站,我的作品,这里是鸢离的个人网站,包含了我的部分作品及网站的动态,网站首页"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <meta name="360-site-verification" content="640d32949bba6deb803d4ae7659aefaf"/>
                 <meta name="sogou_site_verification" content="0uSzFwTLGI"/>
@@ -35,6 +35,7 @@ export default function Home() {
                                 alt="YuanLi"
                                 width={60}
                             />
+                            <h1 className={'text-2xl'}>鸢离</h1>
                         </div>
                         <div className={'flex-center'}>
                             <Anchor
