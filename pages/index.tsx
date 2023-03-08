@@ -23,7 +23,7 @@ export default function Home() {
                 <meta httpEquiv="Content-Type" content="text/html;charset=gb2312" />
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <meta name="360-site-verification" content="640d32949bba6deb803d4ae7659aefaf"/>
-                <meta name="sogou_site_verification" content="0uSzFwTLGI" />
+                <meta name="sogou_site_verification" content="cDJfCXqbDX" />
                 <meta name="baidu-site-verification" content="codeva-5fmdAxw1GK" />
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
