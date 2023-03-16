@@ -1,17 +1,21 @@
-import {Divider} from "antd";
+import React from "react";
 
-export default function Title({text}:any) {
+interface props {
+    title?: string,
+    describe?: string,
+}
+
+const Title: React.FunctionComponent<props> = ({title, describe}: any) => {
     return (
-        <>
-            <div className={'text-3xl font-bold text-gray-800'}>
-                {text}
+        <div className={'flex-center flex-col mb-6 w-full text-center text-white'}>
+            <div className={'text-4xl font-bold mb-3'}>
+                {title}
             </div>
-            <Divider style={{
-                width: 50,
-                minWidth: 50,
-                height: 3,
-                backgroundColor: '#70C000'
-            }}/>
-        </>
+            <div className={'text-2xl'}>
+                {describe}
+            </div>
+        </div>
     );
 }
+
+export default Title

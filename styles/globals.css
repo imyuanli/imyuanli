@@ -12,14 +12,6 @@
     background-color: rgba(255, 255, 255, .8)
 }
 
-.css-dev-only-do-not-override-1km3mtt.ant-anchor-wrapper:not(.ant-anchor-horizontal) .ant-anchor .ant-anchor-ink {
-    width: 64px !important;
-}
+.app-main {
 
-.css-dev-only-do-not-override-1km3mtt.ant-anchor-wrapper-horizontal::before {
-    border-bottom: none;
-}
-
-.css-dev-only-do-not-override-1km3mtt.ant-anchor-wrapper:not(.ant-anchor-horizontal) .ant-anchor::before {
-    border-inline-start: none;
 }
