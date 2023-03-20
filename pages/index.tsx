@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import {Card, Tag} from "antd";
+import {Card, Tag, Timeline} from "antd";
 import Image from 'next/image'
 import {
     ArrowRightOutlined,
-    BulbOutlined,
+    BulbOutlined, ClockCircleOutlined,
     CodeOutlined,
-    ExperimentOutlined,
+    ExperimentOutlined, SmileOutlined,
 } from "@ant-design/icons";
 import {RECOMMEND_WORK_LIST} from "@/utils";
 import Link from "next/link";
@@ -126,6 +126,85 @@ export default function Home() {
                             <ArrowRightOutlined/>
                         </div>
                     </Link>
+                </section>
+                <section className={'my-12'}>
+                    <div className={'flex items-center justify-center md:justify-between my-6'}>
+                        <div className={'text-center md:text-left'}>
+                            <div className={'text-3xl font-bold'}>部分作品</div>
+                        </div>
+                    </div>
+                   <Card className={'w-full'}>
+                       <Timeline
+                           mode="alternate"
+                           className={'w-full'}
+                           items={[
+                               {
+                                   color: '#00CCFF',
+                                   dot: <SmileOutlined style={{fontSize: 22}}/>,
+                                   children: <p>TO BE CONTINUED...</p>,
+                               },
+
+                               {
+                                   label: '2023-2-22',
+                                   dot: <ClockCircleOutlined/>,
+                                   children: <p>woodBox更换名称及域名 aTools 1.0 上线</p>,
+                               },
+                               {
+                                   label: '2023-12-23',
+                                   children: <p>woodBox Beta版 上线</p>,
+                               },
+                               {
+                                   label: '2022-12-11',
+                                   dot: <ClockCircleOutlined/>,
+                                   children: <p>鸢离起始页更换架构并更名为mini起始页</p>,
+                               },
+                               {
+                                   label: '2022-10-8',
+                                   dot: <ClockCircleOutlined/>,
+                                   children: <p>博客 1.0 上线</p>,
+                               },
+                               {
+                                   label: '2022-9-24',
+                                   children: <p>前端所有网站交由vercel托管,全域开启HTTPS</p>,
+                               },
+                               {
+                                   label: '2022-9-4',
+                                   dot: <ClockCircleOutlined style={{fontSize: '16px'}}/>,
+                                   children: <p>简历生成 1.0 上线</p>,
+                               },
+                               {
+                                   label: '2022-8-11',
+                                   color: 'gray',
+                                   children: <p>鸢离起始页 1.0 上线</p>,
+                               },
+                               {
+                                   label: '2022-7-30',
+                                   color: 'gray',
+                                   children: <p>续费新服务器,续费域名，构思新项目 鸢离起始页</p>,
+                               },
+                               {
+                                   label: '2021-12-11',
+                                   color: 'red',
+                                   children: <p>服务器到期，网站停更。</p>,
+                               },
+                               {
+                                   label: '2021-8-19',
+                                   color: 'gray',
+                                   children: <p>鸢离主页2.0上线</p>,
+                               },
+                               {
+                                   label: '2021-2-5',
+                                   color: 'gray',
+                                   children: <p>更换后端架构，鸢离主页新增多个功能模块，并正式发布1.0</p>,
+                               },
+                               {
+                                   label: '2020-12-11',
+                                   color: 'gray',
+                                   children: <p>注册域名，鸢离主页Beta 正式上线</p>,
+                               },
+                           ]}
+                       />
+                   </Card>
                 </section>
             </main>
         </>

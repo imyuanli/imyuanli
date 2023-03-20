@@ -6,7 +6,9 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 import Image from 'next/image'
 import Logo from '../public/logo.png'
-import {GithubOutlined} from "@ant-design/icons";
+import {ArrowRightOutlined, GithubOutlined, SendOutlined} from "@ant-design/icons";
+import React from "react";
+import Btn from "@/components/btn";
 
 const {Footer, Content} = Layout;
 const navArr = [
@@ -39,7 +41,7 @@ export default function App({Component, pageProps}: AppProps) {
                     colorPrimary: '#13c2c2',
                 },
             }}>
-                <Layout className={'app-main flex-center px-6'}>
+                <Layout className={'app-main flex-center'}>
                     <header className={'grid grid-cols-4 p-6 gap-3 justify-items-center w-full'}>
                         <Link href={'/'} className={'flex-center'}>
                             <Image
@@ -73,10 +75,22 @@ export default function App({Component, pageProps}: AppProps) {
                             </a>
                         </div>
                     </header>
-                    <Content style={{maxWidth: 1200}} className={'w-full'}>
+                    <Content style={{maxWidth: 1200}} className={'w-full  px-6'}>
                         <Component {...pageProps} />
                     </Content>
-                    <Footer className={'w-full'}>Footer</Footer>
+                    <footer className={'w-full'}>
+                        <div className={'flex justify-between items-center w-full p-24 bg-white shadow-lg'}>
+                            <div className={'text-2xl'}>
+                                有兴趣合作?
+                            </div>
+                            <a href="mailto:2865437316@qq.com?cc=yuanli" className={'hidden md:block'}>
+                                <Btn text={'发一个邮件'} icon={<SendOutlined/>} w={'w-52'}/>
+                            </a>
+                        </div>
+                        <div className={'py-6 px-24 '}>
+                            © {new Date().getFullYear()} yuanli
+                        </div>
+                    </footer>
                 </Layout>
             </ConfigProvider>
         </StyleProvider>
