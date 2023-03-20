@@ -8,9 +8,7 @@ import Image from 'next/image'
 import Logo from '../public/logo.png'
 import {GithubOutlined} from "@ant-design/icons";
 
-
-
-const {Header, Footer, Content} = Layout;
+const {Footer, Content} = Layout;
 const navArr = [
     {
         name: '首页',
@@ -37,11 +35,11 @@ export default function App({Component, pageProps}: AppProps) {
     return (
         <StyleProvider hashPriority="high">
             <ConfigProvider theme={{
-                    token: {
-                        colorPrimary: '#7611a6',
-                    },
-                }}>
-                <Layout style={{minHeight:'100vh'}} className={'app-main flex-center w-full px-3'}>
+                token: {
+                    colorPrimary: '#13c2c2',
+                },
+            }}>
+                <Layout className={'app-main flex-center px-6'}>
                     <header className={'grid grid-cols-4 p-6 gap-3 justify-items-center w-full'}>
                         <Link href={'/'} className={'flex-center'}>
                             <Image
@@ -69,13 +67,13 @@ export default function App({Component, pageProps}: AppProps) {
                                 })
                             }
                         </div>
-                        <div  className={'flex-center '}>
+                        <div className={'flex-center '}>
                             <a href="https://github.com/imyuanli" className={'flex-center'}>
                                 <GithubOutlined style={{fontSize: 18}}/>
                             </a>
                         </div>
                     </header>
-                    <Content style={{maxWidth:1200}} className={'w-full'}>
+                    <Content style={{maxWidth: 1200}} className={'w-full'}>
                         <Component {...pageProps} />
                     </Content>
                     <Footer className={'w-full'}>Footer</Footer>

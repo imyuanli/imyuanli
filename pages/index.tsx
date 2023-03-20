@@ -1,33 +1,34 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
-import {StyleProvider} from '@ant-design/cssinjs';
-import {Anchor, Button, Card, FloatButton, Tag, Timeline} from "antd";
+import {Card, Tag} from "antd";
 import Image from 'next/image'
-import Logo from '../public/logo.png'
-import {ArrowRightOutlined, ClockCircleOutlined, CodeOutlined, GithubOutlined, SmileOutlined} from "@ant-design/icons";
-import {DEFAULT_WORK_LIST} from "@/utils";
-import Title from "@/components/title";
+import {
+    ArrowRightOutlined,
+    BulbOutlined,
+    CodeOutlined,
+    ExperimentOutlined,
+} from "@ant-design/icons";
+import {RECOMMEND_WORK_LIST} from "@/utils";
 import Link from "next/link";
-import SecondTitle from "@/components/second-title";
+import React from "react";
 
 const {Meta} = Card;
 
-const iconCss = {fontSize: 24, color: '#7611a6'}
+const iconCss = {fontSize: 26, color: '#13c2c2'}
 const cardDetailArr = [
     {
-        icon: <CodeOutlined style={iconCss}/>,
-        title: '全栈开发',
-        describe: "使用Django作为主要的后端框架"
+        icon: <BulbOutlined style={iconCss}/>,
+        title: '我是鸢离',
+        describe: "是一名前端开发工程师,主要使用react开发"
     },
     {
         icon: <CodeOutlined style={iconCss}/>,
         title: '全栈开发',
-        describe: "如果他很痛苦，他会/**/被认为是在帮忙，但我确实这么做了。"
+        describe: "平时开发后端用的是django和fast api"
     },
     {
-        icon: <CodeOutlined style={iconCss}/>,
-        title: '全栈开发',
-        describe: "如果他很痛苦，他会被认为是在帮忙，但我确实这么做了。"
+        icon: <ExperimentOutlined style={iconCss}/>,
+        title: '极简设计',
+        describe: "喜欢简约的设计,Simple but not simple"
     },
 ]
 export default function Home() {
@@ -45,21 +46,17 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main>
-                <section className={'flex-center flex-col mb-6'}>
-                    <Title
-                        title={'Hello, my name is Jeanine White'}
-                        describe={'I am a Creative Developer who is currently based in Portland, Oregon.'}
-                    />
+                <section className={'flex-center flex-col my-12'}>
                     <Card className={'shadow-md w-full'}>
-                        <div className={'grid grid-cols-1 md:grid-cols-3 gap-4'}>
+                        <div className={'grid grid-cols-1 md:grid-cols-3 gap-6'}>
                             {
                                 cardDetailArr.map((item, index) => {
                                     return (
-                                        <div key={index} className={'mb-3 md:mb-0'}>
-                                            <div className={'mb-1'}>
+                                        <div key={index} className={'mb-6 md:mb-0'}>
+                                            <div className={'mb-2'}>
                                                 {item.icon}
                                             </div>
-                                            <div className={'text-2xl font-bold mb-1'}>
+                                            <div className={'text-2xl font-bold mb-2'}>
                                                 {item.title}
                                             </div>
                                             <div className={'text-gray-400'}>
@@ -72,33 +69,60 @@ export default function Home() {
                         </div>
                     </Card>
                 </section>
-                <section>
-                    <div className={'flex justify-between items-center'}>
-                        <SecondTitle
-                            title={'Selected Work'}
-                            describe={'Take a look below at some of my featured work for clients from the past few years.'}
-                        />
+                <section className={'my-12'}>
+                    <div className={'flex items-center justify-center md:justify-between'}>
+                        <div className={'text-center md:text-left'}>
+                            <div className={'text-3xl font-bold'}>部分作品</div>
+                        </div>
                         <Link className={'hidden md:block'} href={'/work'}>
                             <div
-                                style={{background: 'linear-gradient(150deg,#ca7879,#7611a6,#1c0056)'}}
-                                className={'w-48 h-14 rounded-full flex-center text-white font-semibold text-xl'}
-                            >
-                                <span>View All</span>
+                                className={'bg-linear-color w-48 h-14 rounded-full flex-center text-white font-semibold text-xl'}>
+                                <span className={'mr-3'}>View All</span>
                                 <ArrowRightOutlined/>
                             </div>
                         </Link>
                     </div>
-                    <div>
-                        <div>
-
-                        </div>
+                    <div className={'my-6 grid grid-cols-1 md:grid-cols-3 gap-4'}>
+                        {
+                            RECOMMEND_WORK_LIST.map((item, index) => {
+                                return (
+                                    <a key={index} href={item.link} title={item.name}>
+                                        <Card hoverable={true}>
+                                            <div className={'flex mb-3'}>
+                                                <div className={'flex-shrink-0 w-16 mr-3 relative'}>
+                                                    <Image
+                                                        layout={'fill'}
+                                                        objectFit={'contain'}
+                                                        alt={item.name}
+                                                        src={item.logo ? item.logo : '/default.png'}
+                                                    />
+                                                </div>
+                                                <div style={{width: 200}} className={'truncate'}>
+                                                    <div className={'font-bold text-lg'}>{item.name}</div>
+                                                    <div className={'truncate'}>{item.link}</div>
+                                                </div>
+                                            </div>
+                                            <Meta
+                                                description={
+                                                    <div>
+                                                        <div className={'truncate mb-2'}>{item.description}</div>
+                                                        <div className={'w-full flex justify-between'}>
+                                                            <Tag color={'#9CA3AF'}>{item.tag}</Tag>
+                                                            <div>v {item.version}</div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            />
+                                        </Card>
+                                    </a>
+                                )
+                            })
+                        }
                     </div>
                     <Link className={'block md:hidden'} href={'/work'}>
                         <div
-                            style={{background: 'linear-gradient(150deg,#ca7879,#7611a6,#1c0056)'}}
-                            className={'w-full h-12 rounded-full flex-center text-white font-semibold text-xl'}
-                        >
-                            <span>View All</span>
+                            className={'bg-linear-color w-full h-12 rounded-full flex-center text-white font-semibold text-xl'}>
+                            <span className={'mr-3'}>View All</span>
                             <ArrowRightOutlined/>
                         </div>
                     </Link>

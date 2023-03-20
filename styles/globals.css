@@ -13,5 +13,10 @@
 }
 
 .app-main {
+    min-height: 100vh !important;
+    width: 100%;
+}
 
+.bg-linear-color {
+    background: linear-gradient(0deg, rgb(46, 190, 243), rgb(255, 252, 159)) !important;
 }
