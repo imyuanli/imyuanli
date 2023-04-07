@@ -1,34 +1,17 @@
 import '@/styles/globals.css'
 import type {AppProps} from 'next/app'
-import {Layout, Button, ConfigProvider} from "antd";
+import {Button, ConfigProvider, Divider} from "antd";
 import {StyleProvider} from '@ant-design/cssinjs';
 import {useRouter} from "next/router";
 import Link from "next/link";
 import Image from 'next/image'
 import Logo from '../public/logo.png'
-import {ArrowRightOutlined, GithubOutlined, SendOutlined} from "@ant-design/icons";
+import {GithubOutlined, SendOutlined} from "@ant-design/icons";
 import React from "react";
-import Btn from "@/components/btn";
+import {navigation} from "@/utils";
+import LinearBtn from "@/components/linear-btn";
 
-const {Footer, Content} = Layout;
-const navArr = [
-    {
-        name: '首页',
-        key: '/'
-    },
-    {
-        name: '作品',
-        key: '/work'
-    },
-    {
-        name: '博客',
-        key: '/blog'
-    },
-    {
-        name: '关于',
-        key: '/about'
-    },
-]
+
 export default function App({Component, pageProps}: AppProps) {
     const router = useRouter()
     const getCurrentUrl = (key: any) => {
@@ -38,60 +21,88 @@ export default function App({Component, pageProps}: AppProps) {
         <StyleProvider hashPriority="high">
             <ConfigProvider theme={{
                 token: {
-                    colorPrimary: '#13c2c2',
+                    colorPrimary: '#2EBEF3FF',
                 },
             }}>
-                <Layout className={'app-main flex-center'}>
-                    <header className={'grid grid-cols-4 p-6 gap-3 justify-items-center w-full'}>
-                        <Link href={'/'} className={'flex-center'}>
-                            <Image
-                                src={Logo}
-                                alt="YuanLi"
-                                width={60}
-                            />
-                            <span className={'text-2xl font-medium text-white'}>Yuan Li</span>
-                        </Link>
-                        <div className={'col-span-2 md:block hidden rounded-full bg-white p-3 shadow-md'}>
-                            {
-                                navArr.map((item, index) => {
-                                    return (
-                                        <Link key={index} href={item?.key}>
-                                            <Button
-                                                shape="round"
-                                                className={'mx-2 font-bold'}
-                                                type={getCurrentUrl(item?.key) ? 'primary' : 'text'}
-                                            >
-                                                {item.name}
-                                            </Button>
-                                        </Link>
-
-                                    )
-                                })
-                            }
-                        </div>
-                        <div className={'flex-center '}>
-                            <a href="https://github.com/imyuanli" className={'flex-center'}>
-                                <GithubOutlined style={{fontSize: 18}}/>
-                            </a>
-                        </div>
-                    </header>
-                    <Content style={{maxWidth: 1200}} className={'w-full  px-6'}>
-                        <Component {...pageProps} />
-                    </Content>
-                    <footer className={'w-full'}>
-                        <div className={'flex justify-between items-center w-full p-24 bg-white shadow-lg'}>
-                            <div className={'text-2xl'}>
-                                有兴趣合作?
+                <div className={'min-h-screen font-sans px-9'}>
+                    <header  className="absolute inset-x-0 top-0 z-50">
+                        <nav className="flex items-center justify-center sm:justify-between py-6 px-9" aria-label="Global">
+                            <div className="hidden sm:flex flex-1">
+                                <Link href="/">
+                                    <h1 className="sr-only">鸢离</h1>
+                                    <Image
+                                        src={Logo}
+                                        alt="YuanLi"
+                                        width={55}
+                                    />
+                                </Link>
                             </div>
-                            <a href="mailto:2865437316@qq.com?cc=yuanli" className={'hidden md:block'}>
-                                <Btn text={'发一个邮件'} icon={<SendOutlined/>} w={'w-52'}/>
+                            <div className={'flex-center flex-wrap rounded-full bg-gray-100 p-2 shadow-lg'}>
+                                {navigation.map((item) => (
+                                    <Link
+                                        key={item.name} href={item.href}
+                                    >
+                                        <Button
+                                            shape="round"
+                                            className={'mx-2 font-bold'}
+                                            type={getCurrentUrl(item?.href) ? 'primary' : 'text'}
+                                        >
+                                            {item.name}
+                                        </Button>
+                                    </Link>
+                                ))}
+                            </div>
+                            <div className="hidden sm:flex flex-1 justify-end">
+                                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                                    <GithubOutlined style={{fontSize: 35}}/>
+                                </a>
+                            </div>
+                        </nav>
+                    </header>
+                    <div className="pt-16">
+                        <div
+                            className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                            aria-hidden="true"
+                        >
+                            <div
+                                className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#FFFC9FFF] to-[#2EBEF3FF] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                                style={{
+                                    clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                                }}
+                            />
+                        </div>
+                        <div className="mx-auto max-w-screen-xl	py-12">
+                            <div className={'w-full max-w-screen-xl'}>
+                                <Component {...pageProps} />
+                            </div>
+                        </div>
+                        <div
+                            className="absolute inset-x-0 top-[calc(100%-25rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-50rem)]"
+                            aria-hidden="true"
+                        >
+                            <div
+                                className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#FFFC9FFF] to-[#2EBEF3FF] opacity-30 sm:left-[calc(50%)] sm:w-[72.1875rem]"
+                                style={{
+                                    clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <footer className={'w-full'}>
+                        <div className={'flex justify-between items-center w-full'}>
+                            <div className={'text-xl'}>
+                                有兴趣合作吗?
+                            </div>
+                            <a href="mailto:2865437316@qq.com">
+                                <LinearBtn w={'w-48'} icon={<SendOutlined />} text={'给我发个邮件'}/>
                             </a>
                         </div>
-                        <div className={'py-6 px-24 '}>
-                            © {new Date().getFullYear()} yuanli
+                        <Divider />
+                        <div className={'mb-6 flex-center'}>
+                            <div>© {new Date().getFullYear()} yuanli</div>
                         </div>
                     </footer>
-                </Layout>
+                </div>
             </ConfigProvider>
         </StyleProvider>
     )
