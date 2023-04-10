@@ -24,7 +24,7 @@ export default function App({Component, pageProps}: AppProps) {
                     colorPrimary: '#2EBEF3FF',
                 },
             }}>
-                <div className={'min-h-screen font-sans px-9'}>
+                <div className={'min-h-screen font-sans px-3'}>
                     <header  className="absolute inset-x-0 top-0 z-50">
                         <nav className="flex items-center justify-center sm:justify-between py-6 px-9" aria-label="Global">
                             <div className="hidden sm:flex flex-1">
@@ -37,7 +37,7 @@ export default function App({Component, pageProps}: AppProps) {
                                     />
                                 </Link>
                             </div>
-                            <div className={'flex-center flex-wrap rounded-full bg-gray-100 p-2 shadow-lg'}>
+                            <div className={'flex-center flex-wrap rounded-full p-2 shadow-lg bg-[#fff]'}>
                                 {navigation.map((item) => (
                                     <Link
                                         key={item.name} href={item.href}
@@ -59,7 +59,7 @@ export default function App({Component, pageProps}: AppProps) {
                             </div>
                         </nav>
                     </header>
-                    <div className="pt-16">
+                    <div className="pt-20">
                         <div
                             className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
                             aria-hidden="true"
@@ -88,20 +88,6 @@ export default function App({Component, pageProps}: AppProps) {
                             />
                         </div>
                     </div>
-                    <footer className={'w-full'}>
-                        <div className={'flex justify-between items-center w-full'}>
-                            <div className={'text-xl'}>
-                                有兴趣合作吗?
-                            </div>
-                            <a href="mailto:2865437316@qq.com">
-                                <LinearBtn w={'w-48'} icon={<SendOutlined />} text={'给我发个邮件'}/>
-                            </a>
-                        </div>
-                        <Divider />
-                        <div className={'mb-6 flex-center'}>
-                            <div>© {new Date().getFullYear()} yuanli</div>
-                        </div>
-                    </footer>
                 </div>
             </ConfigProvider>
         </StyleProvider>
