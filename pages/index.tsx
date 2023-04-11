@@ -63,7 +63,7 @@ export default function Home() {
             <main>
                 <section className={'flex-center flex-col'}>
                     <div className={'text-3xl font-bold mb-3'}>Hello，我是鸢离</div>
-                    <div className={'text-lg  text-gray-600 mb-3'}>我是一名前端开发工程师</div>
+                    <div className={'text-lg  text-gray-600 mb-3'}>一名前端开发工程师</div>
                     <div>
                         <Tag icon={<ManOutlined/>} color="#2EBEF3FF">
                             00后
@@ -102,7 +102,7 @@ export default function Home() {
                 <section className={'my-12'}>
                     <div className={'flex items-center justify-center md:justify-between'}>
                         <div className={'text-center md:text-left'}>
-                            <div className={'text-2xl font-bold'}>作品</div>
+                            <div className={'text-2xl font-bold'}>我的作品</div>
                         </div>
 
                     </div>
