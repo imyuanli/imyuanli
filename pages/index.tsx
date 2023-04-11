@@ -106,7 +106,7 @@ export default function Home() {
                         </div>
 
                     </div>
-                    <div className={'my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4'}>
+                    <div className={'my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-3'}>
                         {
                             DEFAULT_WORK_LIST.map((item, index) => {
                                 return (
@@ -115,7 +115,7 @@ export default function Home() {
                                             hoverable={true}
                                             className={'shadow-md'}
                                         >
-                                            <div className={'flex mb-3'}>
+                                            <div className={'flex mb-6'}>
                                                 <div className={'flex-shrink-0 w-16 mr-3 relative'}>
                                                     <Image
                                                         layout={'fill'}
@@ -132,7 +132,7 @@ export default function Home() {
                                             <Meta
                                                 description={
                                                     <div>
-                                                        <div className={'truncate mb-2'}>{item.description}</div>
+                                                        <div className={'truncate mb-3'}>{item.description}</div>
                                                         <div className={'w-full flex justify-between'}>
                                                             <Tag color={'#9CA3AF'}>{item.tag}</Tag>
                                                             <div>v {item.version}</div>
