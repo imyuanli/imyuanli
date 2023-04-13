@@ -32,7 +32,7 @@ const Footer = () => {
                 </a>
             </div>
             <Divider/>
-            <div className={'mb-6 flex justify-between items-center'}>
+            <div className={'mb-6 flex justify-center flex-col space-y-3 sm:justify-between sm:flex-row items-center'}>
                 <div className="flex space-x-2 text-sm">
                     <div>{metadata.author}</div>
                     <div>{` • `}</div>
