@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://gitee.com/imyuanli/imyuanli/compare/v0.1.1...v0.2.0) (2023-04-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* 此次更新是大版本更新，页面整体重构
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复更新日志出现其他数据的bug ([c6350cf](https://gitee.com/imyuanli/imyuanli/commit/c6350cf8b90fbfb602e3e5f878be1ec6096ead05))
+* ui的微调 ([d3a9c8d](https://gitee.com/imyuanli/imyuanli/commit/d3a9c8d1f36ec65ad3036ed67362b0400dd91e46))
+
 ### [0.1.1](https://gitee.com/imyuanli/imyuanli/compare/v0.1.0...v0.1.1) (2023-04-11)
 
 
