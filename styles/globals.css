@@ -10,8 +10,8 @@
 
 
 :root {
-    --primary-color: #2EBEF3FF;
-    --second-color: #FFFC9FFF;
+    --primary-color: #14B8A6;
+    --second-color: #FFFC9F;
 }
 
 
@@ -20,5 +20,5 @@
 }
 
 .bg-linear-color {
-    background: linear-gradient(-15deg, #2EBEF3FF, #FFFC9FFF) !important;
+    background: linear-gradient(-15deg, #14B8A6, #FFFC9FFF) !important;
 }
