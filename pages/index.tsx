@@ -1,17 +1,20 @@
 import Head from 'next/head'
-import {Card, Tag} from "antd";
+import {Card, Divider, Tag} from "antd";
 import Image from 'next/image'
 import {
     AntDesignOutlined,
     CodeOutlined,
     CustomerServiceOutlined,
-    ExperimentOutlined,
-    ManOutlined,
+    ExperimentOutlined, EyeOutlined,
+    ManOutlined, MessageOutlined,
     ToolOutlined
 } from "@ant-design/icons";
-import {DEFAULT_WORK_LIST, metadata} from "@/utils";
+import {DEFAULT_WORK_LIST, metadata, test_article} from "@/utils";
 import React from "react";
 import Section from "@/components/section";
+import Link from "next/link";
+import WorkCard from "@/components/work-card";
+import ArticleCard from "@/components/article-card";
 
 const {Meta} = Card;
 
@@ -88,42 +91,20 @@ export default function Home() {
                         </div>
                     </Card>
                 </Section>
-                <Section title={'部分作品'} href={'/projects'}>
+                <Section title={'热门作品'} href={'/work'}>
                     <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3'}>
                         {DEFAULT_WORK_LIST.map((item, index) => {
                             return (
-                                <a key={index} href={item.link} title={item.name}>
-                                    <Card
-                                        hoverable={true}
-                                        className={'shadow-md'}
-                                    >
-                                        <div className={'flex mb-6'}>
-                                            <div className={'flex-shrink-0 w-16 mr-3 relative'}>
-                                                <Image
-                                                    layout={'fill'}
-                                                    objectFit={'contain'}
-                                                    alt={item.name}
-                                                    src={item.logo ? item.logo : '/default.png'}
-                                                />
-                                            </div>
-                                            <div style={{width: 200}} className={'truncate'}>
-                                                <div className={'font-bold text-lg'}>{item.name}</div>
-                                                <div className={'truncate'}>{item.link}</div>
-                                            </div>
-                                        </div>
-                                        <Meta
-                                            description={
-                                                <div>
-                                                    <div className={'truncate mb-3'}>{item.description}</div>
-                                                    <div className={'w-full flex justify-between'}>
-                                                        <Tag color={'#9CA3AF'}>{item.tag}</Tag>
-                                                        <div>v {item.version}</div>
-                                                    </div>
-                                                </div>
-                                            }
-                                        />
-                                    </Card>
-                                </a>
+                                <WorkCard key={index} workItem={item}/>
+                            )
+                        })}
+                    </div>
+                </Section>
+                <Section title={'近期博客'} href={'/blog'}>
+                    <div className={'grid grid-cols-1 md:grid-cols-3 gap-x-9'}>
+                        {test_article.map((item, index) => {
+                            return (
+                                <ArticleCard key={item.id} article={item}/>
                             )
                         })}
                     </div>

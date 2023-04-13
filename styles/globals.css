@@ -14,6 +14,26 @@
     --second-color: #FFFC9F;
 }
 
+.text-highlight {
+    color: var(--primary-color);
+}
+
+.text-highlight:hover {
+    color: #0D9488;
+}
+
+.title-underline span {
+    cursor: pointer;
+    background: linear-gradient(to right, #14B8A6, #14B8A6) no-repeat right bottom;
+    background-size: 0 2px;
+    transition: background-size 800ms;
+}
+
+.title-underline span:hover {
+    background-position-x: left;
+    background-size: 100% 2px;
+}
+
 
 .bg-white-200 {
     background-color: rgba(255, 255, 255, .8)
