@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import {Button} from "antd";
+import MyLink from "@/components/my-link";
 
 interface props {
     article: any,
@@ -10,12 +10,10 @@ const ArticleCard: React.FunctionComponent<props> = ({article}) => {
     const {id, title, content, tag, createAt} = article
     return (
         <div className={'grid grid-cols-1 md:grid-cols-4'}>
-            <div className={'flex text-gray-500 space-x-3 mb-3'}>
+            <div className={'flex items-baseline text-gray-500 space-x-3 mb-3'}>
                 <div>{createAt}</div>
                 <div>{` • `}</div>
-                <Button style={{padding: 0}} type="link" href={'href'}>
-                    {tag}
-                </Button>
+                <MyLink href={'href'} text={tag} />
             </div>
             <div className={'col-span-3'}>
                 <Link
@@ -28,9 +26,7 @@ const ArticleCard: React.FunctionComponent<props> = ({article}) => {
                     {content}
                 </div>
                 <div className={'mt-auto w-full flex justify-end'}>
-                    <Button style={{padding: 0}} type="link" href={'href'}>
-                        继续阅读
-                    </Button>
+                    <MyLink href={'href'} text={'继续阅读'} />
                 </div>
             </div>
         </div>
