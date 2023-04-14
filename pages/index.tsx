@@ -1,18 +1,16 @@
 import Head from 'next/head'
-import {Card, Divider, Tag} from "antd";
-import Image from 'next/image'
+import {Card, Tag} from "antd";
 import {
     AntDesignOutlined,
     CodeOutlined,
     CustomerServiceOutlined,
-    ExperimentOutlined, EyeOutlined,
-    ManOutlined, MessageOutlined,
+    ExperimentOutlined,
+    ManOutlined,
     ToolOutlined
 } from "@ant-design/icons";
 import {DEFAULT_WORK_LIST, metadata, test_article} from "@/utils";
 import React from "react";
 import Section from "@/components/section";
-import Link from "next/link";
 import WorkCard from "@/components/work-card";
 import ArticleCard from "@/components/article-card";
 
@@ -98,11 +96,13 @@ export default function Home() {
                         })}
                     </div>
                 </Section>
-                <Section title={'近期博客'} href={'/blog'}>
+                <Section title={'最新文章'} href={'/blog'}>
                     <div className={'grid grid-cols-1  gap-6'}>
                         {test_article.map((item, index) => {
                             return (
-                                <ArticleCard key={item.id} article={item}/>
+                                <Card key={item.id} className={'shadow-md'}>
+                                    <ArticleCard article={item}/>
+                                </Card>
                             )
                         })}
                     </div>

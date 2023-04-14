@@ -28,9 +28,9 @@ const Footer = () => {
             <Divider/>
             <div className={'mb-6 flex justify-center flex-col space-y-3 sm:justify-between sm:flex-row items-center'}>
                 <div className="flex space-x-2 text-sm">
-                    <div>{metadata.author}</div>
-                    <div>{` • `}</div>
                     <div>{`© ${new Date().getFullYear()}`}</div>
+                    <div>{` • `}</div>
+                    <div>{metadata.author}</div>
                     <div>{` • `}</div>
                     <Link href={'/'}>{metadata.title}</Link>
                 </div>
@@ -38,7 +38,8 @@ const Footer = () => {
                     {
                         socialLink.map((item, index) => {
                             return (
-                                <a target={'_blank'} key={index} href={item.href} className={'hover:underline'}>{item.name}</a>
+                                <a target={'_blank'} key={index} href={item.href}
+                                   className={'hover:underline'}>{item.name}</a>
                             )
                         })
                     }

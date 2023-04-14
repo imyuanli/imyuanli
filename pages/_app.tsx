@@ -14,11 +14,13 @@ export default function App({Component, pageProps}: AppProps) {
                 theme={{
                     token: {
                         colorPrimary: metadata.primaryColor,
-                        colorLink: metadata.primaryColor
+                        colorLink: metadata.primaryColor,
+                        colorInfo: metadata.primaryColor,
+                        wireframe: false
                     }
                 }}
             >
-                <div className={'min-h-screen px-3 flex justify-center bg-[#F4F5F7]'}>
+                <div className={'min-h-screen px-3 flex justify-center bg-[#fafafa]'}>
                     <div className={'w-full max-w-screen-xl flex justify-between flex-col'}>
                         <Header/>
                         <main className="mb-auto">
