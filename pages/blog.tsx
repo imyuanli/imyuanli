@@ -8,7 +8,7 @@ import React from "react";
 const Blog = () => {
     return (
         <div>
-            <Title value={'全部文章'}>
+            <Title value={'博客'}>
                 <Input
                     placeholder="Basic usage"
                     size={'large'}

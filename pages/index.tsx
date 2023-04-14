@@ -87,7 +87,7 @@ export default function Home() {
                         </div>
                     </Card>
                 </Section>
-                <Section title={'热门作品'} href={'/work'}>
+                <Section title={'热门作品'} href={'/project'}>
                     <div className={'grid grid-cols-1 md:grid-cols-3 gap-3'}>
                         {DEFAULT_WORK_LIST.map((item, index) => {
                             return (
