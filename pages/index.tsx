@@ -90,20 +90,24 @@ export default function Home() {
                 <Section title={'热门作品'} href={'/project'}>
                     <div className={'grid grid-cols-1 md:grid-cols-3 gap-3'}>
                         {DEFAULT_WORK_LIST.map((item, index) => {
-                            return (
-                                <WorkCard key={index} workItem={item}/>
-                            )
+                            if (index < 3) {
+                                return (
+                                    <WorkCard key={index} workItem={item}/>
+                                )
+                            }
                         })}
                     </div>
                 </Section>
                 <Section title={'最新文章'} href={'/blog'}>
                     <div className={'grid grid-cols-1  gap-6'}>
                         {test_article.map((item, index) => {
-                            return (
-                                <Card key={item.id} className={'shadow-md'}>
-                                    <ArticleCard article={item}/>
-                                </Card>
-                            )
+                            if (index < 3) {
+                                return (
+                                    <Card key={item.id} className={'shadow-md'}>
+                                        <ArticleCard article={item}/>
+                                    </Card>
+                                )
+                            }
                         })}
                     </div>
                 </Section>

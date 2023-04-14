@@ -11,8 +11,8 @@ const linkArr = [
         link: '/'
     },
     {
-        name: '作品',
-        link: '/work'
+        name: '项目',
+        link: '/project'
     },
     {
         name: '博客',
