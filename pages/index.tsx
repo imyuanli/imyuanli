@@ -16,9 +16,7 @@ import Link from "next/link";
 import WorkCard from "@/components/work-card";
 import ArticleCard from "@/components/article-card";
 
-const {Meta} = Card;
-
-const iconCss = {fontSize: 26, color: metadata.primaryColor}
+const iconCss = {fontSize: 32, color: metadata.primaryColor}
 const cardDetailArr = [
     {
         icon: <CodeOutlined style={iconCss}/>,
@@ -53,7 +51,7 @@ export default function Home() {
             <main>
                 <Section>
                     <div className={'flex-center flex-col'}>
-                        <div className={'text-3xl font-bold mb-3'}>Hello，我是鸢离</div>
+                        <div className={'text-3xl font-bold mb-3'}>Hey，我是鸢离</div>
                         <div className={'text-lg  text-gray-600 mb-3'}>一名前端开发工程师</div>
                         <div>
                             <Tag icon={<ManOutlined/>} color={metadata.primaryColor}>
@@ -69,16 +67,16 @@ export default function Home() {
                     </div>
                 </Section>
                 <Section>
-                    <Card className={'shadow-md w-full'}>
+                    <Card className={'w-full shadow-md'}>
                         <div className={'grid grid-cols-1 md:grid-cols-3 gap-6'}>
                             {
                                 cardDetailArr.map((item, index) => {
                                     return (
-                                        <div key={index} className={'mb-3 md:mb-0 space-y-2'}>
+                                        <div key={index} className={'flex-center flex-col space-y-3'}>
                                             <div>
                                                 {item.icon}
                                             </div>
-                                            <div className={'text-2xl font-bold'}>
+                                            <div className={'text-xl font-bold'}>
                                                 {item.title}
                                             </div>
                                             <div className={'text-gray-400'}>
@@ -92,7 +90,7 @@ export default function Home() {
                     </Card>
                 </Section>
                 <Section title={'热门作品'} href={'/work'}>
-                    <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3'}>
+                    <div className={'grid grid-cols-1 md:grid-cols-3 gap-3'}>
                         {DEFAULT_WORK_LIST.map((item, index) => {
                             return (
                                 <WorkCard key={index} workItem={item}/>
@@ -101,7 +99,7 @@ export default function Home() {
                     </div>
                 </Section>
                 <Section title={'近期博客'} href={'/blog'}>
-                    <div className={'grid grid-cols-1 md:grid-cols-3 gap-x-9'}>
+                    <div className={'grid grid-cols-1  gap-6'}>
                         {test_article.map((item, index) => {
                             return (
                                 <ArticleCard key={item.id} article={item}/>

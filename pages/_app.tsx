@@ -18,33 +18,11 @@ export default function App({Component, pageProps}: AppProps) {
                     }
                 }}
             >
-                <div className={'min-h-screen h-screen px-3 flex justify-center App'}>
+                <div className={'min-h-screen px-3 flex justify-center bg-[#F4F5F7]'}>
                     <div className={'w-full max-w-screen-xl flex justify-between flex-col'}>
                         <Header/>
                         <main className="mb-auto">
-                            <div
-                                className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-[100px] sm:-top-80"
-                                aria-hidden="true"
-                            >
-                                <div
-                                    className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#FFFC9FFF] to-[#14B8A6] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-                                    style={{
-                                        clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                                    }}
-                                />
-                            </div>
                             <Component {...pageProps} />
-                            <div
-                                className="absolute inset-x-0 top-[calc(100%-25rem)] -z-10 transform-gpu overflow-hidden blur-[100px] sm:top-[calc(100%-50rem)]"
-                                aria-hidden="true"
-                            >
-                                <div
-                                    className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#FFFC9FFF] to-[#14B8A6] opacity-30 sm:left-[calc(50%)] sm:w-[72.1875rem]"
-                                    style={{
-                                        clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                                    }}
-                                />
-                            </div>
                         </main>
                         <Footer/>
                     </div>

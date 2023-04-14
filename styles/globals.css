@@ -15,21 +15,23 @@
 }
 
 .text-highlight {
-    color: var(--primary-color);
+    color: var(--primary-color) !important;
 }
 
 .text-highlight:hover {
-    color: #0D9488;
+    color: #0D9488 !important;
 }
 
 .title-underline span {
     cursor: pointer;
+    color: #000;
     background: linear-gradient(to right, #14B8A6, #14B8A6) no-repeat right bottom;
     background-size: 0 2px;
     transition: background-size 800ms;
 }
 
 .title-underline span:hover {
+    color: var(--primary-color) !important;
     background-position-x: left;
     background-size: 100% 2px;
 }
