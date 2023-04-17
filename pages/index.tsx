@@ -8,11 +8,14 @@ import {
     ManOutlined,
     ToolOutlined
 } from "@ant-design/icons";
-import {DEFAULT_WORK_LIST, metadata, test_article} from "@/utils";
+import {metadata} from "@/utils";
 import React from "react";
 import Section from "@/components/section";
 import WorkCard from "@/components/work-card";
 import ArticleCard from "@/components/article-card";
+import {useAtomValue} from "jotai";
+import {articleAtom, projectAtom} from "@/store";
+import Loading from "@/components/loading";
 
 const iconCss = {fontSize: 32, color: metadata.primaryColor}
 const cardDetailArr = [
@@ -33,6 +36,8 @@ const cardDetailArr = [
     },
 ]
 export default function Home() {
+    const projectList: any = useAtomValue(projectAtom);
+    const articleList: any = useAtomValue(articleAtom);
     return (
         <>
             <Head>
@@ -88,28 +93,38 @@ export default function Home() {
                     </Card>
                 </Section>
                 <Section title={'热门作品'} href={'/project'}>
-                    <div className={'grid grid-cols-1 md:grid-cols-3 gap-3'}>
-                        {DEFAULT_WORK_LIST.map((item, index) => {
-                            if (index < 3) {
-                                return (
-                                    <WorkCard key={index} workItem={item}/>
-                                )
-                            }
-                        })}
-                    </div>
+                    {
+                        projectList ?
+                            <div className={'grid grid-cols-1 md:grid-cols-3 gap-3'}>
+                                {projectList.map((item: any, index: any) => {
+                                    if (index < 3) {
+                                        return (
+                                            <WorkCard key={index} workItem={item}/>
+                                        )
+                                    }
+                                })}
+                            </div>
+                            :
+                            <Loading/>
+                    }
                 </Section>
                 <Section title={'最新文章'} href={'/blog'}>
-                    <div className={'grid grid-cols-1  gap-6'}>
-                        {test_article.map((item, index) => {
-                            if (index < 3) {
-                                return (
-                                    <Card key={item.id} className={'shadow-md'}>
-                                        <ArticleCard article={item}/>
-                                    </Card>
-                                )
-                            }
-                        })}
-                    </div>
+                    {
+                        articleList ?
+                            <div className={'grid grid-cols-1  gap-6'}>
+                                {articleList?.map((item: any, index: any) => {
+                                    if (index < 3) {
+                                        return (
+                                            <Card key={item.id} className={'shadow-md'}>
+                                                <ArticleCard article={item}/>
+                                            </Card>
+                                        )
+                                    }
+                                })}
+                            </div>
+                            :
+                            <Loading/>
+                    }
                 </Section>
             </main>
         </>

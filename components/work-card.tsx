@@ -21,7 +21,7 @@ const WorkCard: React.FunctionComponent<props> = ({workItem}) => {
                             layout={'fill'}
                             objectFit={'contain'}
                             alt={name}
-                            src={logo ? logo : '/default.png'}
+                            src={'/default.png'}
                         />
                     </div>
                     <div style={{width: 200}} className={'truncate'}>
