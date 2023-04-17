@@ -26,15 +26,12 @@ const Footer = () => {
     return (
         <footer className={'w-full'}>
             <Divider/>
-            <div className={'mb-6 flex justify-center flex-col space-y-3 sm:justify-between sm:flex-row items-center'}>
-                <div className="flex space-x-2 text-sm">
-                    <div>{`© ${new Date().getFullYear()}`}</div>
-                    <div>{` • `}</div>
-                    <div>{metadata.author}</div>
-                    <div>{` • `}</div>
-                    <Link href={'/'}>{metadata.title}</Link>
+            <div
+                className={'mb-6 flex justify-center flex-col sm:justify-between sm:flex-row items-center'}>
+                <div className="flex mb-3 sm:mb-0 space-x-2 text-sm text-[#666]">
+                    Copyright © {new Date().getFullYear()} {metadata.author} Inc. All rights reserved.
                 </div>
-                <div className={'flex gap-4 text-[#6474a2]'}>
+                <div className={'flex-center gap-4 text-[#6474a2]'}>
                     {
                         socialLink.map((item, index) => {
                             return (
