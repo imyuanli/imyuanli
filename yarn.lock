@@ -2624,6 +2624,11 @@ map-obj@^4.0.0:
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-4.3.0.tgz#9304f906e93faae70880da102a9f1df0ea8bb05a"
   integrity sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==
 
+md-editor-rt@^2.11.2:
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/md-editor-rt/-/md-editor-rt-2.11.2.tgz#f905107a4dfe053c7d90f11ba332ad78a34bfe92"
+  integrity sha512-fXhqQxf+1DpjW0avnrLG9XE1oR5zsYwCiZV/fYyh0wpQRWkoxVPZiRtAEVGROrkRcwtM1TLei1N2U+ueRJPrRg==
+
 meow@^8.0.0:
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/meow/-/meow-8.1.2.tgz#bcbe45bda0ee1729d350c03cffc8395a36c4e897"
