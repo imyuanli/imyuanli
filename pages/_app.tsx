@@ -9,6 +9,11 @@ import {metadata} from "@/utils";
 import {get_article_list, get_project_list} from "@/service/service";
 import {useSetAtom} from "jotai";
 import {articleAtom, projectAtom} from "@/store";
+import dayjs from "dayjs";
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+import 'dayjs/locale/zh-cn'
+
+dayjs.extend(localizedFormat)
 
 export default function App({Component, pageProps}: AppProps) {
     const setArticleList = useSetAtom(articleAtom);
