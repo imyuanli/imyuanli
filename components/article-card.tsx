@@ -8,7 +8,7 @@ interface props {
 }
 
 const ArticleCard: React.FunctionComponent<props> = ({article}) => {
-    const {id, title, describe, classify_value, create_time} = article
+    const {article_id, title, describe, classify_value, create_time} = article
     return (
         <div className={'grid grid-cols-1 md:grid-cols-4'}>
             <div className={'flex items-baseline text-gray-500 space-x-3 mb-3'}>
@@ -18,7 +18,7 @@ const ArticleCard: React.FunctionComponent<props> = ({article}) => {
             </div>
             <div className={'col-span-3'}>
                 <Link
-                    href={`/article/${id}`}
+                    href={`/blog/${article_id}`}
                     className={'text-xl font-semibold mb-6 title-underline line-clamp-1'}
                 >
                     <span>{title}</span>
@@ -27,7 +27,7 @@ const ArticleCard: React.FunctionComponent<props> = ({article}) => {
                     {describe}
                 </div>
                 <div className={'mt-auto w-full flex justify-end'}>
-                    <MyLink href={'href'} text={'继续阅读'} />
+                    <MyLink href={`/blog/${article_id}`} text={'继续阅读'} />
                 </div>
             </div>
         </div>
