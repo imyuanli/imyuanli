@@ -6,6 +6,7 @@ import ArticleCard from "@/components/article-card";
 import React from "react";
 import {useAtomValue} from "jotai";
 import {articleAtom} from "@/store";
+import Loading from "@/components/loading";
 
 const Blog = () => {
     const articleList: any = useAtomValue(articleAtom);
@@ -19,16 +20,21 @@ const Blog = () => {
                 />
             </Title>
             <div className={'space-y-20'}>
-                <div className={'grid grid-cols-1  gap-6'}>
-                    {articleList.map((item:any, index:any) => {
-                        return (
-                            <div key={item.id}>
-                                <ArticleCard article={item}/>
-                                {test_article.length - 1 !== index && < Divider/>}
-                            </div>
-                        )
-                    })}
-                </div>
+                {
+                    articleList ?
+                        <div className={'grid grid-cols-1  gap-6'}>
+                            {articleList.map((item: any, index: any) => {
+                                return (
+                                    <div key={index}>
+                                        <ArticleCard article={item}/>
+                                        {articleList.length - 1 !== index && < Divider/>}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        :
+                        <Loading/>
+                }
             </div>
         </div>
     );
