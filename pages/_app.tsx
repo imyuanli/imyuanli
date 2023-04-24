@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import type {AppProps} from 'next/app'
-import {ConfigProvider} from "antd";
+import {ConfigProvider, FloatButton} from "antd";
 import {StyleProvider} from '@ant-design/cssinjs';
 import React, {useEffect} from "react";
 import Footer from "@/components/footer";
@@ -42,7 +42,7 @@ export default function App({Component, pageProps}: AppProps) {
                 }}
             >
                 <div className={'min-h-screen px-3 flex justify-center bg-[#f5f5f5]'}>
-                    <div className={'w-full max-w-screen-xl flex justify-between flex-col'}>
+                    <div className={'w-full max-w-screen-lg flex justify-between flex-col'}>
                         <Header/>
                         <main className="mb-auto">
                             <Component {...pageProps} />
@@ -50,6 +50,7 @@ export default function App({Component, pageProps}: AppProps) {
                         <Footer/>
                     </div>
                 </div>
+                <FloatButton.BackTop visibilityHeight={100}/>
             </ConfigProvider>
         </StyleProvider>
     )
