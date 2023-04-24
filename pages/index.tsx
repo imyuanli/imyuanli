@@ -16,24 +16,30 @@ import ArticleCard from "@/components/article-card";
 import {useAtomValue} from "jotai";
 import {articleAtom, projectAtom} from "@/store";
 import Loading from "@/components/loading";
+import IconFont from "@/components/icon-font";
 
 const iconCss = {fontSize: 32, color: metadata.primaryColor}
 const cardDetailArr = [
     {
-        icon: <CodeOutlined style={iconCss}/>,
-        title: '全栈开发',
-        describe: "平时开发后端用的是django和fast api居多"
+        icon: <IconFont type="icon-reactjs-line" style={iconCss}/>,
+        title: 'React狂热者',
+        describe: "热爱react的一切"
     },
     {
-        icon: <ExperimentOutlined style={iconCss}/>,
+        icon: <IconFont type="icon-development" style={iconCss}/>,
+        title: '全栈开发',
+        describe: "后端常用django和fast api"
+    },
+    {
+        icon: <CodeOutlined style={iconCss}/>,
         title: '热爱Coding',
-        describe: "喜欢接触新的技术"
+        describe: "享受代码的乐趣"
     },
     {
         icon: <AntDesignOutlined style={iconCss}/>,
         title: '极简设计',
-        describe: "享受简约的设计,Simple but not simple"
-    },
+        describe: "喜欢简约的设计,Simple but not simple"
+    }
 ]
 export default function Home() {
     const projectList: any = useAtomValue(projectAtom);
@@ -71,7 +77,7 @@ export default function Home() {
                 </Section>
                 <Section>
                     <Card className={'w-full shadow-md'}>
-                        <div className={'grid grid-cols-1 md:grid-cols-3 gap-6'}>
+                        <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-20'}>
                             {
                                 cardDetailArr.map((item, index) => {
                                     return (
@@ -95,9 +101,9 @@ export default function Home() {
                 <Section title={'热门作品'} href={'/project'}>
                     {
                         projectList ?
-                            <div className={'grid grid-cols-1 md:grid-cols-3 gap-3'}>
+                            <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4'}>
                                 {projectList.map((item: any, index: any) => {
-                                    if (index < 3) {
+                                    if (index < 4) {
                                         return (
                                             <WorkCard key={index} workItem={item}/>
                                         )
