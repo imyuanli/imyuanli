@@ -1,16 +1,9 @@
-import React, {MouseEvent, useState} from 'react';
+import React, {useState} from 'react';
 import MdEditor from 'md-editor-rt';
-import type {TocItem} from 'md-editor-rt/lib/MdEditor/extensions/MdCatalog';
 import {Card} from "antd";
 
-const onClick = (e: MouseEvent, t: TocItem) => {
-    history.replaceState({}, '', `${location.pathname}#${t.text}`);
-};
 const Catalog = () => {
-    const [_document, setDocument] = useState<any>(null)
-    React.useEffect(() => {
-        setDocument(document)
-    }, [])
+    const [_document, setDocument] = useState<any>(document.documentElement)
     return (
         <Card title={'目录'}
               bodyStyle={{
@@ -20,9 +13,7 @@ const Catalog = () => {
         >
             <MdEditor.MdCatalog
                 editorId={'pre'}
-                scrollElementOffsetTop={10}
-                scrollElement={_document && _document.documentElement}
-                onClick={onClick}
+                scrollElement={_document}
             />
         </Card>
     );
