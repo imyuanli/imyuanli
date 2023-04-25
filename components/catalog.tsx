@@ -13,7 +13,10 @@ const Catalog = () => {
     }, [])
     return (
         <Card title={'目录'}
-        bodyStyle={{width:240,height:400,overflow:'auto'}}
+              bodyStyle={{
+                  height: 400,
+                  overflow: 'auto'
+              }}
         >
             <MdEditor.MdCatalog
                 editorId={'pre'}
