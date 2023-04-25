@@ -44,3 +44,14 @@
 .bg-linear-color {
     background: linear-gradient(-15deg, #14B8A6, #FFFC9FFF) !important;
 }
+
+
+/*md样式*/
+
+.md-editor-catalog-link span:hover {
+    color: var(--primary-color) !important;
+}
+
+.md-editor-catalog-active > span {
+    color: var(--primary-color) !important;
+}

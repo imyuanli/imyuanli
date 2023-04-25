@@ -12,7 +12,9 @@ const Catalog = () => {
         setDocument(document)
     }, [])
     return (
-        <Card title={'目录'}>
+        <Card title={'目录'}
+        bodyStyle={{width:240,height:400,overflow:'auto'}}
+        >
             <MdEditor.MdCatalog
                 editorId={'pre'}
                 scrollElementOffsetTop={10}
