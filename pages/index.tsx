@@ -21,14 +21,9 @@ import IconFont from "@/components/icon-font";
 const iconCss = {fontSize: 32, color: metadata.primaryColor}
 const cardDetailArr = [
     {
-        icon: <IconFont type="icon-reactjs-line" style={iconCss}/>,
-        title: 'React狂热者',
-        describe: "热爱react的一切"
-    },
-    {
         icon: <IconFont type="icon-development" style={iconCss}/>,
         title: '全栈开发',
-        describe: "后端常用django和fast api"
+        describe: "react重度使用者,后端常用django和fastapi"
     },
     {
         icon: <CodeOutlined style={iconCss}/>,
@@ -77,7 +72,7 @@ export default function Home() {
                 </Section>
                 <Section>
                     <Card className={'w-full shadow-md'}>
-                        <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-20'}>
+                        <div className={'grid grid-cols-1 md:grid-cols-3 gap-12'}>
                             {
                                 cardDetailArr.map((item, index) => {
                                     return (
@@ -101,9 +96,9 @@ export default function Home() {
                 <Section title={'热门作品'} href={'/project'}>
                     {
                         projectList ?
-                            <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4'}>
+                            <div className={'grid grid-cols-1 md:grid-cols-3 gap-4'}>
                                 {projectList.map((item: any, index: any) => {
-                                    if (index < 4) {
+                                    if (index < 3) {
                                         return (
                                             <WorkCard key={index} workItem={item}/>
                                         )
@@ -119,7 +114,7 @@ export default function Home() {
                         articleList ?
                             <div className={'grid grid-cols-1  gap-6'}>
                                 {articleList?.map((item: any, index: any) => {
-                                    if (index < 3) {
+                                    if (index < 6) {
                                         return (
                                             <Card key={item.id} className={'shadow-md'}>
                                                 <ArticleCard article={item}/>
