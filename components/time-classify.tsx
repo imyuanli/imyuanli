@@ -13,7 +13,7 @@ const TimeClassify: React.FunctionComponent<props> = ({create_time, classify_val
         <div className={'flex items-baseline text-sm text-gray-500 space-x-1'}>
             <div>{dayjs(create_time).format('YYYY/MM/DD')}</div>
             <div>{` • `}</div>
-            <MyLink href={'href'} text={classify_value}/>
+            <div>{classify_value}</div>
             <div>{` • `}</div>
             <div>
                 阅读 {view_count}

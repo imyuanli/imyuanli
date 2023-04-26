@@ -13,11 +13,11 @@ const Blog = () => {
     return (
         <div>
             <Title value={'博客'}>
-                <Input
-                    placeholder="Basic usage"
-                    size={'large'}
-                    suffix={<SearchOutlined/>}
-                />
+                {/*<Input*/}
+                {/*    placeholder="Basic usage"*/}
+                {/*    size={'large'}*/}
+                {/*    suffix={<SearchOutlined/>}*/}
+                {/*/>*/}
             </Title>
             <div className={'space-y-20'}>
                 {
