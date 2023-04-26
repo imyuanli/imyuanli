@@ -17,7 +17,17 @@ const Article = () => {
     const [text, setText] = useState('hello md-editor-rt！');
     const [data, setData] = useState<any>({});
     const [loading, setLoading] = useState<any>(false)
-    const {title, describe, classify_value, preview_theme, code_theme, view_count, create_time} = data
+    const {
+        title,
+        describe,
+        classify_value,
+        preview_theme,
+        code_theme,
+        view_count,
+        create_time,
+        next_article,
+        pre_article
+    } = data
     useEffect(() => {
         if (id) {
             setLoading(true)
@@ -112,12 +122,19 @@ const Article = () => {
                             <div ref={pageView}
                                  className={`space-y-3 max-w-[240px] ${isFixed ? 'fixed top-3' : 'static'}`}>
                                 <Catalog/>
-                                <Card title={'上一篇'}>
-                                    <MyLink href={'12'} text={'经典面试题：让 a == 1 && a == 2 && a == 3 成立'}/>
-                                </Card>
-                                <Card title={'下一篇'}>
-                                    <MyLink href={'12'} text={'fixed 固定定位在父元素含有 tranform 属性时会失效，变成 absolute 的效果'}/>
-                                </Card>
+                                {
+                                    pre_article &&
+                                  <Card title={'上一篇'}>
+                                    <MyLink href={`/blog/${pre_article.article_id}`} text={pre_article.title}/>
+                                  </Card>
+                                }
+                                {
+                                    next_article &&
+                                  <Card title={'下一篇'}>
+                                    <MyLink href={`/blog/${next_article.article_id}`} text={next_article.title}/>
+                                  </Card>
+                                }
+
                             </div>
                         </div>
                     </div>
