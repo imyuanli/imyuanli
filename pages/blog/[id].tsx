@@ -11,6 +11,7 @@ import {AimOutlined, ArrowLeftOutlined, MessageOutlined, ShareAltOutlined, Smile
 import MyLink from "@/components/my-link";
 import Waline from "@/components/waline";
 import {metadata} from "@/utils";
+import Seo from "@/components/seo";
 
 
 const Article = () => {
@@ -80,87 +81,95 @@ const Article = () => {
     }, [])
 
     return (
-        <div>
-            {
-                loading ?
-                    <Loading/>
-                    :
-                    <div>
-                        <div className={'grid grid-cols-4 gap-3'}>
-                            {/*<div className={'fixed -ml-16 top-40 flex flex-col space-y-3'}>*/}
-                            {/*    <>*/}
-                            {/*        <Button*/}
-                            {/*            className={'flex-center'}*/}
-                            {/*            size={'large'}*/}
-                            {/*            shape={'circle'}*/}
-                            {/*            icon={<ShareAltOutlined/>}*/}
-                            {/*        />*/}
-                            {/*        <Button*/}
-                            {/*            className={'flex-center'}*/}
-                            {/*            size={'large'}*/}
-                            {/*            shape={'circle'}*/}
-                            {/*            icon={<ArrowLeftOutlined/>}*/}
-                            {/*        />*/}
-                            {/*    </>*/}
-                            {/*    <Tooltip title="沉浸阅读" placement={'bottom'}>*/}
-                            {/*        <Button*/}
-                            {/*            className={'flex-center'}*/}
-                            {/*            size={'large'}*/}
-                            {/*            shape={'circle'}*/}
-                            {/*            icon={<AimOutlined/>}*/}
-                            {/*        />*/}
-                            {/*    </Tooltip>*/}
-                            {/*</div>*/}
-                            <div className={'col-span-3 space-y-3'}>
-                                <Card>
-                                    <div className={'flex-center flex-col space-y-3'}>
-                                        <div className={'text-4xl font-bold'}>{title}</div>
-                                        <TimeClassify
-                                            create_time={create_time}
-                                            classify_value={classify_value}
-                                            view_count={view_count}
+        <>
+            <Seo
+                title={title + ' - ' + metadata.title}
+                description={describe}
+                keywords={'个人博客,' + classify_value}
+            />
+            <main>
+                {
+                    loading ?
+                        <Loading/>
+                        :
+                        <div>
+                            <div className={'grid grid-cols-4 gap-3'}>
+                                {/*<div className={'fixed -ml-16 top-40 flex flex-col space-y-3'}>*/}
+                                {/*    <>*/}
+                                {/*        <Button*/}
+                                {/*            className={'flex-center'}*/}
+                                {/*            size={'large'}*/}
+                                {/*            shape={'circle'}*/}
+                                {/*            icon={<ShareAltOutlined/>}*/}
+                                {/*        />*/}
+                                {/*        <Button*/}
+                                {/*            className={'flex-center'}*/}
+                                {/*            size={'large'}*/}
+                                {/*            shape={'circle'}*/}
+                                {/*            icon={<ArrowLeftOutlined/>}*/}
+                                {/*        />*/}
+                                {/*    </>*/}
+                                {/*    <Tooltip title="沉浸阅读" placement={'bottom'}>*/}
+                                {/*        <Button*/}
+                                {/*            className={'flex-center'}*/}
+                                {/*            size={'large'}*/}
+                                {/*            shape={'circle'}*/}
+                                {/*            icon={<AimOutlined/>}*/}
+                                {/*        />*/}
+                                {/*    </Tooltip>*/}
+                                {/*</div>*/}
+                                <div className={'col-span-3 space-y-3'}>
+                                    <Card>
+                                        <div className={'flex-center flex-col space-y-3'}>
+                                            <div className={'text-4xl font-bold'}>{title}</div>
+                                            <TimeClassify
+                                                create_time={create_time}
+                                                classify_value={classify_value}
+                                                view_count={view_count}
+                                            />
+                                        </div>
+                                        <MdEditor
+                                            editorId={'pre'}
+                                            modelValue={text}
+                                            onChange={setText}
+                                            previewOnly={true}
+                                            showCodeRowNumber={true}
+                                            previewTheme={preview_theme}
+                                            codeTheme={code_theme}
+                                            style={{
+                                                borderRadius: 8
+                                            }}
                                         />
-                                    </div>
-                                    <MdEditor
-                                        editorId={'pre'}
-                                        modelValue={text}
-                                        onChange={setText}
-                                        previewOnly={true}
-                                        showCodeRowNumber={true}
-                                        previewTheme={preview_theme}
-                                        codeTheme={code_theme}
-                                        style={{
-                                            borderRadius: 8
-                                        }}
-                                    />
-                                </Card>
-                                <Card id="comment">
-                                    <Waline serverURL={metadata.serverURL} path={asPath}/>
-                                </Card>
-                            </div>
-                            <div className={'col-span-1'}>
-                                <div ref={pageView}
-                                     className={`space-y-3 max-w-[240px] ${isFixed ? 'fixed top-3' : 'static'}`}>
-                                    <Catalog/>
-                                    {
-                                        pre_article &&
-                                      <Card title={'上一篇'}>
-                                        <MyLink href={`/blog/${pre_article.article_id}`} text={pre_article.title}/>
-                                      </Card>
-                                    }
-                                    {
-                                        next_article &&
-                                      <Card title={'下一篇'}>
-                                        <MyLink href={`/blog/${next_article.article_id}`} text={next_article.title}/>
-                                      </Card>
-                                    }
+                                    </Card>
+                                    <Card id="comment">
+                                        <Waline serverURL={metadata.serverURL} path={asPath}/>
+                                    </Card>
+                                </div>
+                                <div className={'col-span-1'}>
+                                    <div ref={pageView}
+                                         className={`space-y-3 max-w-[240px] ${isFixed ? 'fixed top-3' : 'static'}`}>
+                                        <Catalog/>
+                                        {
+                                            pre_article &&
+                                          <Card title={'上一篇'}>
+                                            <MyLink href={`/blog/${pre_article.article_id}`} text={pre_article.title}/>
+                                          </Card>
+                                        }
+                                        {
+                                            next_article &&
+                                          <Card title={'下一篇'}>
+                                            <MyLink href={`/blog/${next_article.article_id}`}
+                                                    text={next_article.title}/>
+                                          </Card>
+                                        }
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-            }
-        </div>
+                }
+            </main>
+        </>
     );
 }
 

@@ -17,6 +17,7 @@ import {useAtomValue} from "jotai";
 import {articleAtom, projectAtom} from "@/store";
 import Loading from "@/components/loading";
 import IconFont from "@/components/icon-font";
+import Seo from "@/components/seo";
 
 const iconCss = {fontSize: 32, color: metadata.primaryColor}
 const cardDetailArr = [
@@ -41,17 +42,11 @@ export default function Home() {
     const articleList: any = useAtomValue(articleAtom);
     return (
         <>
-            <Head>
-                <title>鸢离</title>
-                <meta name="keywords" content="鸢离,yuanli,imyuanli,个人网站,我的作品"/>
-                <meta name="description" content="鸢离,yuanli,imyuanli,个人网站,我的作品,这里是鸢离的个人网站,包含了我的部分作品及网站的动态,网站首页"/>
-                <meta httpEquiv="Content-Type" content="text/html;charset=gb2312"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <meta name="360-site-verification" content="640d32949bba6deb803d4ae7659aefaf"/>
-                <meta name="sogou_site_verification" content="cDJfCXqbDX"/>
-                <meta name="baidu-site-verification" content="codeva-5fmdAxw1GK"/>
-                <link rel="icon" href="/favicon.ico"/>
-            </Head>
+            <Seo
+                title={metadata.title}
+                description={metadata.description}
+                keywords={'鸢离的首页'}
+            />
             <main>
                 <Section>
                     <div className={'flex-center flex-col'}>

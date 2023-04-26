@@ -1,5 +1,7 @@
 export const metadata = {
     author: '鸢离',
+    siteUrl:'www.imyuanli.cn',
+    description:'这里是鸢离的网站首页,包含了我的部分作品及个人博客',
     title: 'YuanLi\'s Index',
     email: '2865437316@qq.com',
     github: 'https://github.com/imyuanli',
