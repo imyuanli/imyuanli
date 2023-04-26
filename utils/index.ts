@@ -7,6 +7,7 @@ export const metadata = {
     csdn: 'https://blog.csdn.net/qq_44259670',
     qq: '2865437316',
     primaryColor:'#14B8A6',
+    serverURL:'https://waline.imyuanli.cn'
 }
 
 export const DEFAULT_WORK_LIST = [

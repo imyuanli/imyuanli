@@ -12,6 +12,8 @@
 :root {
     --primary-color: #14B8A6;
     --second-color: #FFFC9F;
+    --waline-theme-color: #14B8A6 !important;
+    --waline-active-color: #0D9488 !important;
 }
 
 .text-highlight {
