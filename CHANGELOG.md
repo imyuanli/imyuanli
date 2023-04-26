@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://gitee.com/imyuanli/imyuanli/compare/v0.4.0...v0.4.1) (2023-04-26)
+
+
+### ✨ Features | 新功能
+
+* 博客页新增目录及ui修改 ([ad9ec98](https://gitee.com/imyuanli/imyuanli/commit/ad9ec9891bd5739b85472ac3c2505aae9a701239))
+* 新增评论 ([634a0fa](https://gitee.com/imyuanli/imyuanli/commit/634a0fa88de05286171701b3cde0982e90eab17f))
+* 新增上一篇下一篇 ([8151340](https://gitee.com/imyuanli/imyuanli/commit/8151340d2a0e2a28e6f20598d3397f5126a7880a))
+* 新增文章详情页 ([1558df2](https://gitee.com/imyuanli/imyuanli/commit/1558df25811d8203aa324d52e48d8414a4e72fb5))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+*  document is not defined ([c5bdea2](https://gitee.com/imyuanli/imyuanli/commit/c5bdea2d97a20431ec7531f9b1afde1c38e618ae))
+* 目录的ui及标题的ui ([e96548b](https://gitee.com/imyuanli/imyuanli/commit/e96548b4def50dda88814379e9ba460b03213dd9))
+* 目录bug的修改 ([6500705](https://gitee.com/imyuanli/imyuanli/commit/65007050ada05b5e8b4d248b45ea42e4f5af17ed))
+* 取值bug ([a9ec12e](https://gitee.com/imyuanli/imyuanli/commit/a9ec12ed3d50d32898b75eb22d9bdeb36611adcc))
+* 渲染文章列表 ([cf2c853](https://gitee.com/imyuanli/imyuanli/commit/cf2c8539ca44f8bb925705aa859b302409344fb3))
+* 云端打包失败的bug ([4bd95aa](https://gitee.com/imyuanli/imyuanli/commit/4bd95aa575895ebc892bd253363a372076b895ba))
+* warning ([c0b5c69](https://gitee.com/imyuanli/imyuanli/commit/c0b5c69c98292134224de25110317d07f09c9908))
+
 ## [0.4.0](https://gitee.com/imyuanli/imyuanli/compare/v0.3.1...v0.4.0) (2023-04-17)
 
 
