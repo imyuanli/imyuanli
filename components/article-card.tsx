@@ -1,0 +1,35 @@
+import Link from "next/link";
+import React from "react";
+import MyLink from "@/components/my-link";
+import dayjs from "dayjs";
+import TimeClassify from "@/components/time-classify";
+
+interface props {
+    article: any,
+}
+
+const ArticleCard: React.FunctionComponent<props> = ({article}) => {
+    const {article_id, title, describe, classify_value, create_time, view_count} = article
+    return (
+        <div className={'grid grid-cols-1 md:grid-cols-4'}>
+            <TimeClassify create_time={create_time} classify_value={classify_value} view_count={view_count}/>
+            <div className={'col-span-3'}>
+                <Link
+                    href={`/blog/${article_id}`}
+                    className={'text-xl font-semibold mb-3 title-underline line-clamp-1'}
+                >
+                    <span>{title}</span>
+                </Link>
+                <div className={'text-gray-500  line-clamp-3 mb-3'}>
+                    {describe}
+                </div>
+                <div className={'mt-auto w-full flex justify-end'}>
+                    <MyLink href={`/blog/${article_id}`} text={'继续阅读'}/>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+
+export default ArticleCard

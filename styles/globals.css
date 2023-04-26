@@ -3,15 +3,39 @@
 @tailwind utilities;
 
 .flex-center {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
 }
 
 
 :root {
-    --primary-color: #2EBEF3FF;
-    --second-color: #FFFC9FFF;
+    --primary-color: #14B8A6;
+    --second-color: #FFFC9F;
+    --waline-theme-color: #14B8A6 !important;
+    --waline-active-color: #0D9488 !important;
+}
+
+.text-highlight {
+    color: var(--primary-color) !important;
+}
+
+.text-highlight:hover {
+    color: #0D9488 !important;
+}
+
+.title-underline span {
+    cursor: pointer;
+    color: #000;
+    background: linear-gradient(to right, #14B8A6, #14B8A6) no-repeat right bottom;
+    background-size: 0 2px;
+    transition: background-size 800ms;
+}
+
+.title-underline span:hover {
+    color: var(--primary-color) !important;
+    background-position-x: left;
+    background-size: 100% 2px;
 }
 
 
@@ -20,5 +44,16 @@
 }
 
 .bg-linear-color {
-    background: linear-gradient(-15deg, #2EBEF3FF, #FFFC9FFF) !important;
+    background: linear-gradient(-15deg, #14B8A6, #FFFC9FFF) !important;
+}
+
+
+/*md样式*/
+
+.md-editor-catalog-link span:hover {
+    color: var(--primary-color) !important;
+}
+
+.md-editor-catalog-active > span {
+    color: var(--primary-color) !important;
 }
