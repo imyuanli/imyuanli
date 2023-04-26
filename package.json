@@ -1,13 +1,14 @@
 {
   "name": "imyuanli",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "release": "standard-version -- --release-as major"
+    "release": "standard-version -- --release-as major",
+    "release-static": "standard-version --release-as 1.0.0"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
