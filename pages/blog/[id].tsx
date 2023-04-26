@@ -36,8 +36,8 @@ const Article = () => {
             get_article({article_id: id})
                 .then((res: any) => {
                     if (res) {
-                        setData({...res.data.article})
-                        setText(res.data.article.content)
+                        setData({...res.article})
+                        setText(res.article.content)
                         setLoading(false)
                     }
                 })
