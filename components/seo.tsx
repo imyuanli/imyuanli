@@ -6,8 +6,6 @@ import {metadata} from "@/utils";
 const Seo = ({title, description, keywords, ogType = 'website'}: any) => {
     const router = useRouter()
     const ogImage = metadata.siteUrl + '/favicon.ico'
-    console.log("description",description)
-    console.log("description",keywords)
     return (
         <Head>
             <title>{title}</title>
