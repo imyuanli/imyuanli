@@ -10,37 +10,55 @@ import {Card, Input, List, Divider} from "antd";
 import MyLink from "@/components/my-link";
 import {useRouter} from "next/router";
 import {SearchOutlined} from "@ant-design/icons";
+import {useSetState} from "ahooks";
 
 const Blog = () => {
     const articleList: any = useAtomValue(articleAtom);
     const classifyList: any = useAtomValue(classifyAtom);
 
-    const [state, setState] = useState<any>({
+    const [state, setState] = useSetState<any>({
         curClassify: null,
         allArticle: null,
+        inputValue: '',
     })
     //分类
     const {query} = useRouter()
-    const {currentClassify, allArticle} = state
+    const {currentClassify, allArticle, inputValue} = state
     useEffect(() => {
-        const res = query.classify
-        if (res && articleList) {
-            setState({
-                currentClassify: classifyList.find((item: any) => item.classify_value == res),
-                allArticle: articleList.filter((item: any) => item.classify_value == res),
-            })
+        if (inputValue) {
+            const res1 = allArticle.filter((item: any) => item.title.toLowerCase().indexOf(inputValue) > -1)
+            const res2 = allArticle.filter((item: any) => item.describe.toLowerCase().indexOf(inputValue) > -1)
+            const res = Array.from(new Set([...res1, ...res2]))
+            if (res.length > 0) {
+                setState({
+                    allArticle: [...res],
+                })
+            }
         } else {
-            setState({
-                currentClassify: null,
-                allArticle: articleList,
-            })
+            const res = query.classify
+            if (res && articleList && classifyList) {
+                setState({
+                    currentClassify: classifyList.find((item: any) => item.classify_value == res),
+                    allArticle: articleList.filter((item: any) => item.classify_value == res),
+                })
+            } else {
+                setState({
+                    currentClassify: null,
+                    allArticle: articleList,
+                })
+            }
         }
-    }, [query, articleList])
+    }, [query, articleList, inputValue])
 
     //获取当前名称
     const getCurName = () => currentClassify ? currentClassify?.classify_label : '博客'
 
     //搜索相关
+    const handleSearchArticle = (e: any) => {
+        setState({
+            inputValue: e.target.value
+        })
+    }
 
     return (
         <>
@@ -55,6 +73,7 @@ const Blog = () => {
                         placeholder="搜索博客"
                         size={'large'}
                         suffix={<SearchOutlined/>}
+                        onChange={handleSearchArticle}
                     />
                 </Title>
                 {
@@ -63,7 +82,8 @@ const Blog = () => {
                             <div className={'md:col-span-3 col-span-4 space-y-6'}>
                                 {allArticle?.map((item: any) => {
                                     return (
-                                        <ArticleCard isBlog={true} key={item.id} article={item}/>
+                                        <ArticleCard inputValue={inputValue} isBlog={true} key={item.id}
+                                                     article={item}/>
                                     )
                                 })}
                             </div>
