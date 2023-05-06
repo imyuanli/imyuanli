@@ -67,7 +67,7 @@ export default function Home() {
                 </Section>
                 <Section>
                     <Card className={'w-full shadow-md'}>
-                        <div className={'grid grid-cols-1 md:grid-cols-3 gap-12'}>
+                        <div className={'grid grid-cols-1 md:grid-cols-3 gap-16'}>
                             {
                                 cardDetailArr.map((item, index) => {
                                     return (
@@ -91,7 +91,7 @@ export default function Home() {
                 <Section title={'热门作品'} href={'/project'}>
                     {
                         projectList ?
-                            <div className={'grid grid-cols-1 md:grid-cols-3 gap-4'}>
+                            <div className={'grid grid-cols-1 md:grid-cols-3 gap-6'}>
                                 {projectList.map((item: any, index: any) => {
                                     if (index < 3) {
                                         return (
@@ -107,13 +107,11 @@ export default function Home() {
                 <Section title={'最新文章'} href={'/blog'}>
                     {
                         articleList ?
-                            <div className={'grid grid-cols-1  gap-6'}>
+                            <div className={'grid grid-cols-1 gap-6'}>
                                 {articleList?.map((item: any, index: any) => {
                                     if (index < 6) {
                                         return (
-                                            <Card key={item.id} className={'shadow-md'}>
-                                                <ArticleCard article={item}/>
-                                            </Card>
+                                            <ArticleCard key={item.id} article={item}/>
                                         )
                                     }
                                 })}

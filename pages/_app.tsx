@@ -41,7 +41,7 @@ export default function App({Component, pageProps}: AppProps) {
                     }
                 }}
             >
-                <div className={'min-h-screen px-3 flex justify-center bg-[#fafafa]'}>
+                <div className={'min-h-screen px-3 flex justify-center bg-[#f5fafa]'}>
                     <div className={'w-full max-w-screen-xl flex justify-between flex-col'}>
                         <Header/>
                         <main className="mb-auto">

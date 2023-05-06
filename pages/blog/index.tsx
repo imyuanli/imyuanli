@@ -1,4 +1,3 @@
-import {Divider} from "antd";
 import Title from "@/components/title";
 import {metadata} from "@/utils";
 import ArticleCard from "@/components/article-card";
@@ -19,16 +18,13 @@ const Blog = () => {
             />
             <main>
                 <Title value={'博客'} />
-                <div className={'space-y-20'}>
+                <div className={'col-span-3'}>
                     {
                         articleList ?
-                            <div className={'grid grid-cols-1  gap-6'}>
-                                {articleList.map((item: any, index: any) => {
+                            <div className={'grid grid-cols-1 gap-6'}>
+                                {articleList.map((item: any) => {
                                     return (
-                                        <div key={index}>
-                                            <ArticleCard article={item}/>
-                                            {articleList.length - 1 !== index && < Divider/>}
-                                        </div>
+                                        <ArticleCard key={item.id} article={item}/>
                                     )
                                 })}
                             </div>
