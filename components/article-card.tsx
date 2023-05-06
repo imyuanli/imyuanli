@@ -6,15 +6,16 @@ import {Card} from "antd";
 
 interface props {
     article: any,
+    isBlog?: Boolean
 }
 
-const ArticleCard: React.FunctionComponent<props> = ({article}) => {
+const ArticleCard: React.FunctionComponent<props> = ({article, isBlog}) => {
     const {article_id, title, describe, classify_value, create_time, view_count} = article
     return (
         <Card className={'shadow-md'}>
-            <div className={'grid grid-cols-1 md:grid-cols-4'}>
+            <div className={`${isBlog ? '' : 'grid grid-cols-1 md:grid-cols-4'}`}>
                 <TimeClassify create_time={create_time} classify_value={classify_value} view_count={view_count}/>
-                <div className={'col-span-3 mt-3'}>
+                <div className={'mt-3 col-span-3'}>
                     <Link
                         href={`/blog/${article_id}`}
                         className={'text-xl font-semibold mb-3 title-underline line-clamp-1'}

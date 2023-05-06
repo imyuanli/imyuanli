@@ -6,9 +6,9 @@ import React, {useEffect} from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import {metadata} from "@/utils";
-import {get_article_list, get_project_list} from "@/service/service";
+import {get_article_list, get_classify_list, get_project_list} from "@/service/service";
 import {useSetAtom} from "jotai";
-import {articleAtom, projectAtom} from "@/store";
+import {articleAtom, classifyAtom, projectAtom} from "@/store";
 import dayjs from "dayjs";
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import 'dayjs/locale/zh-cn'
@@ -18,6 +18,7 @@ dayjs.extend(localizedFormat)
 export default function App({Component, pageProps}: AppProps) {
     const setArticleList = useSetAtom(articleAtom);
     const setProjectList = useSetAtom(projectAtom);
+    const setClassifyList = useSetAtom(classifyAtom);
 
     useEffect(() => {
         get_article_list().then((res: any) => {
@@ -26,7 +27,9 @@ export default function App({Component, pageProps}: AppProps) {
         get_project_list().then((res: any) => {
             setProjectList(res['project_list'])
         })
-
+        get_classify_list().then((res: any) => {
+            setClassifyList(res['classify_list'])
+        })
     }, [])
 
     return (
