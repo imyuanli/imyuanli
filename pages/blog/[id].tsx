@@ -118,10 +118,10 @@ const Article = () => {
                                 {/*        />*/}
                                 {/*    </Tooltip>*/}
                                 {/*</div>*/}
-                                <div className={'col-span-3 space-y-3'}>
-                                    <Card>
+                                <div className={'col-span-4 md:col-span-3 space-y-3'}>
+                                    <Card bodyStyle={{padding: 0}}>
                                         <div className={'flex-center flex-col space-y-3'}>
-                                            <div className={'text-4xl font-bold'}>{title}</div>
+                                            <div className={'text-4xl font-bold px-5 py-2.5'}>{title}</div>
                                             <TimeClassify
                                                 create_time={create_time}
                                                 classify_value={classify_value}
@@ -141,11 +141,24 @@ const Article = () => {
                                             }}
                                         />
                                     </Card>
+                                    {
+                                        pre_article &&
+                                      <Card title={'上一篇'}>
+                                        <MyLink href={`/blog/${pre_article.article_id}`} text={pre_article.title}/>
+                                      </Card>
+                                    }
+                                    {
+                                        next_article &&
+                                      <Card title={'下一篇'}>
+                                        <MyLink href={`/blog/${next_article.article_id}`}
+                                                text={next_article.title}/>
+                                      </Card>
+                                    }
                                     <Card id="comment">
                                         <Waline serverURL={metadata.serverURL} path={asPath}/>
                                     </Card>
                                 </div>
-                                <div className={'col-span-1'}>
+                                <div className={'hidden md:block col-span-1'}>
                                     <div ref={pageView}
                                          className={`space-y-3 max-w-[240px] ${isFixed ? 'fixed top-3' : 'static'}`}>
                                         <Catalog/>
@@ -162,7 +175,6 @@ const Article = () => {
                                                     text={next_article.title}/>
                                           </Card>
                                         }
-
                                     </div>
                                 </div>
                             </div>
