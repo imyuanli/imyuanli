@@ -20,12 +20,72 @@ export default function App({Component, pageProps}: AppProps) {
     const setProjectList = useSetAtom(projectAtom);
     const setClassifyList = useSetAtom(classifyAtom);
 
+    //根据框架的key找到对应的图片
+    const powerOptions = [
+        {
+            key: 'umi',
+            value: 'umi.png',
+            link: 'https://umijs.org/zh-CN/docs/getting-started',
+        },
+        {
+            key: 'react',
+            value: 'react.svg',
+            link: 'https://react.docschina.org',
+        },
+        {
+            key: 'next',
+            value: 'next.svg',
+            link: 'https://nextjs.org/docs/getting-started',
+        },
+        {
+            key: 'remix',
+            value: 'remix.png',
+            link: 'https://remix.run',
+        },
+        {
+            key: 'taro',
+            value: 'Taro',
+            link: 'https://taro-docs.jd.com/taro/docs',
+        },
+        {
+            key: 'uni',
+            value: 'uni.png',
+            link: 'https://uniapp.dcloud.io',
+        },
+        {
+            key: 'vue',
+            value: 'vue.svg',
+            link: 'https://cn.vuejs.org/guide/introduction.html',
+        },
+        {
+            key: 'nuxt',
+            value: 'nuxt.svg',
+            link: 'https://v2.nuxt.com/docs/get-started/installation',
+        },
+        {
+            key: 'other',
+            value: 'other',
+            link: null
+        },
+    ]
+
+    const power = (key: string) => powerOptions.find(item => item.key === key)
+
     useEffect(() => {
         get_article_list().then((res: any) => {
             setArticleList(res['article_list'])
         })
         get_project_list().then((res: any) => {
-            setProjectList(res['project_list'])
+            const list = res['project_list'].map((item: any) => {
+                const powerItem = power(item.powered_by)
+                return {
+                    ...item,
+                    powered_by: {
+                        ...powerItem
+                    }
+                }
+            })
+            setProjectList(list)
         })
         get_classify_list().then((res: any) => {
             setClassifyList(res['classify_list'])
